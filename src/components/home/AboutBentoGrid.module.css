@@ -468,3 +468,48 @@
     min-height: auto;
   }
 }
+
+@media (max-width: 640px) {
+  .bentoGrid {
+    gap: 16px;
+  }
+
+  .bentoCardBlue,
+  .bentoCardLight,
+  .bentoCardLime,
+  .bentoCardDark {
+    padding: 22px 18px;
+    border-radius: 20px;
+    min-height: auto;
+  }
+
+  .statNumLarge {
+    font-size: clamp(32px, 8vw, 44px);
+  }
+
+  .darkCardBottomRow {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .darkTrackPills {
+    flex-wrap: wrap;
+  }
+
+  .bentoColRight {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .bentoCardBlue,
+  .bentoCardLight,
+  .bentoCardLime,
+  .bentoCardDark {
+    padding: 18px 14px;
+  }
+
+  .statLabelSmall {
+    font-size: 12.5px;
+  }
+}

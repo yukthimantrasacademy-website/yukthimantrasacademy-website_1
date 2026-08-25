@@ -8,7 +8,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   cursor: default;
 }
 
@@ -17,7 +17,6 @@
   max-width: 1560px;
   height: auto;
   display: block;
-  overflow: visible;
 }
 
 .svgWordmarkText {
@@ -29,7 +28,7 @@
 
 @media (max-width: 768px) {
   .wordmarkContainer {
-    padding: 24px 16px 12px;
-    margin-top: 32px;
+    padding: 24px 12px 12px;
+    margin-top: 28px;
   }
 }

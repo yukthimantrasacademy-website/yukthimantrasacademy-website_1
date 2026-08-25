@@ -95,12 +95,27 @@
 
 @media (max-width: 640px) {
   .questionButton {
-    padding: 18px 18px;
-    font-size: 15.5px;
+    padding: 16px 14px;
+    font-size: 15px;
+    min-height: 52px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .chevronWrapper {
+    width: 32px;
+    height: 32px;
   }
 
   .answerContent {
-    padding: 0 18px 20px;
+    padding: 0 14px 18px;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 380px) {
+  .questionButton {
+    padding: 14px 12px;
     font-size: 14px;
   }
 }

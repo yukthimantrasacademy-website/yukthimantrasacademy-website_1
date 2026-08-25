@@ -65,13 +65,13 @@
   margin: 0 auto;
 }
 
-/* Hero Quick Stats Strip (Single Unified Line) */
+/* Hero Quick Stats Strip (Single Unified Line on Desktop, Wrapped on Mobile) */
 .statsStrip {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   margin-top: 12px;
   width: 100%;
 }
@@ -396,31 +396,50 @@
 @media (max-width: 1024px) {
   .pillarsGrid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .roadmapGrid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 860px) {
-  .statsStrip {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
+    gap: 16px;
   }
 }
 
 @media (max-width: 768px) {
   .pageHero {
-    padding: 56px 0 32px;
+    margin-top: 68px;
+    padding: 48px 0 28px;
+  }
+
+  .pillarsSection,
+  .roadmapSection,
+  .policySection {
+    padding: 48px 0;
+  }
+
+  .pillarCard {
+    padding: 24px 20px;
+    border-radius: 20px;
   }
 
   .policyCard {
-    padding: 28px 20px;
+    padding: 24px 18px;
+    border-radius: 20px;
   }
 
   .roadmapGrid {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .pillarCard,
+  .policyCard {
+    padding: 20px 14px;
+  }
+
+  .pillarTitle {
+    font-size: 18px;
   }
 }

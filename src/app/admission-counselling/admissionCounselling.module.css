@@ -137,19 +137,40 @@
 @media (max-width: 1024px) {
   .whyGrid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 
 @media (max-width: 768px) {
   .pageHero {
-    padding: 100px 0 40px;
+    margin-top: 68px;
+    padding: 48px 0 28px;
   }
 
   .pageTitle {
-    font-size: 38px;
+    font-size: clamp(28px, 6.5vw, 50px);
+  }
+
+  .formSection,
+  .processSection,
+  .whySection,
+  .faqSection {
+    padding: 48px 0;
   }
 
   .whyGrid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .whyCard {
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  .whyCard {
+    padding: 18px 14px;
   }
 }

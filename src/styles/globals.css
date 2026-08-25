@@ -52,6 +52,10 @@ YUKTHIMANTRA'S ACADEMY — DESIGN SYSTEM & GLOBAL STYLES
   /* Spacing System */
   --spacing-container: 1240px;
   --header-height: 80px;
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-left: env(safe-area-inset-left, 0px);
+  --safe-area-right: env(safe-area-inset-right, 0px);
 
   /* Typography */
   --font-display: "Libre Caslon Display", "Helvetica Neue", Helvetica, Arial, serif;
@@ -80,6 +84,7 @@ html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* Locomotive / Lenis Smooth Scroll Integration */
@@ -162,7 +167,14 @@ ul, ol {
   padding-right: 24px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
   .container {
     padding-left: 16px;
     padding-right: 16px;
@@ -178,6 +190,13 @@ ul, ol {
   .section-padding {
     padding-top: 52px;
     padding-bottom: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-padding {
+    padding-top: 44px;
+    padding-bottom: 44px;
   }
 }
 

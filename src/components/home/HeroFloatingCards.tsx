@@ -124,6 +124,9 @@ const gaugeTickAngles = [-80, -60, -40, -20, 0, 20, 40, 60, 80, 100];
 export const HeroFloatingCards: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Mobile active tab state: 'A' (Analytics), 'B' (Medical Coding / RCM), 'C' (Clinical AI)
+  const [activeMobileTab, setActiveMobileTab] = useState<'A' | 'B' | 'C'>('B');
+
   // Active track selections
   const [activeTrackA, setActiveTrackA] = useState(0);
   const [activeTrackB, setActiveTrackB] = useState(0);
@@ -199,10 +202,41 @@ export const HeroFloatingCards: React.FC = () => {
 
   return (
     <div ref={containerRef} className={styles.floatingCardsContainer} data-hero="cards">
+      {/* Mobile Track Switcher Tabs (Only visible on screens <= 768px) */}
+      <div className={styles.mobileTabsNav} role="tablist" aria-label="Hero Tracks">
+        <button
+          type="button"
+          role="tab"
+          aria-selected={activeMobileTab === 'A'}
+          className={cn(styles.mobileTabBtn, activeMobileTab === 'A' && styles.mobileTabBtnActive)}
+          onClick={() => setActiveMobileTab('A')}
+        >
+          Analytics
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={activeMobileTab === 'B'}
+          className={cn(styles.mobileTabBtn, activeMobileTab === 'B' && styles.mobileTabBtnActive)}
+          onClick={() => setActiveMobileTab('B')}
+        >
+          Medical Coding
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={activeMobileTab === 'C'}
+          className={cn(styles.mobileTabBtn, activeMobileTab === 'C' && styles.mobileTabBtnActive)}
+          onClick={() => setActiveMobileTab('C')}
+        >
+          AI &amp; LLMs
+        </button>
+      </div>
+
       {/* =========================================================================
           CARD 1: LEFT ANGLED CARD (Healthcare Analytics)
           ========================================================================= */}
-      <div className={cn(styles.cardWrapper, styles.cardLeftWrapper)}>
+      <div className={cn(styles.cardWrapper, styles.cardLeftWrapper, activeMobileTab === 'A' && styles.mobileCardVisible)}>
         <div className={cn(styles.floatingCard, styles.cardLeft, 'gsap-hero-hidden')} data-hero="card">
           {/* Header with Interactive Dropdown */}
           <div className={styles.cardHeaderSmall}>
@@ -281,7 +315,7 @@ export const HeroFloatingCards: React.FC = () => {
       {/* =========================================================================
           CARD 2: CENTER MAIN FRONT CARD (Medical Coding & Operations)
           ========================================================================= */}
-      <div className={cn(styles.cardWrapper, styles.cardCenterWrapper)}>
+      <div className={cn(styles.cardWrapper, styles.cardCenterWrapper, activeMobileTab === 'B' && styles.mobileCardVisible)}>
         <div className={cn(styles.floatingCard, styles.cardCenter, 'gsap-hero-hidden')} data-hero="card">
           {/* Header with Interactive Dropdown */}
           <div className={styles.cardHeaderMain}>
@@ -357,7 +391,7 @@ export const HeroFloatingCards: React.FC = () => {
       {/* =========================================================================
           CARD 3: RIGHT ANGLED CARD (Clinical AI & LLMs)
           ========================================================================= */}
-      <div className={cn(styles.cardWrapper, styles.cardRightWrapper)}>
+      <div className={cn(styles.cardWrapper, styles.cardRightWrapper, activeMobileTab === 'C' && styles.mobileCardVisible)}>
         <div className={cn(styles.floatingCard, styles.cardRight, 'gsap-hero-hidden')} data-hero="card">
           {/* Header with Interactive Dropdown */}
           <div className={styles.cardHeaderSmall}>

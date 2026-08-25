@@ -1,32 +1,38 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(16, 24, 39, 0.6);
+  background: rgba(16, 24, 39, 0.55);
   backdrop-filter: blur(6px);
-  z-index: 100;
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 200;
   display: flex;
   justify-content: flex-end;
   animation: fadeIn 200ms ease-out;
 }
 
 .drawer {
-  width: 100%;
-  max-width: 380px;
+  width: 86%;
+  max-width: 350px;
+  min-width: 270px;
   height: 100%;
   background: #ffffff;
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow-lg);
+  box-shadow: -12px 0 40px rgba(16, 24, 39, 0.22);
   animation: slideLeft 250ms cubic-bezier(0.16, 1, 0.3, 1);
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-top: var(--safe-area-top);
+  padding-bottom: var(--safe-area-bottom);
 }
 
 .drawerHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 24px;
+  padding: 18px 22px;
   border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
 }
 
 .brand {
@@ -41,11 +47,13 @@
   justify-content: center;
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  background: #111827;
   color: #ffffff;
   font-weight: 800;
-  font-size: 14px;
-  border-radius: var(--radius-sm);
+  font-size: 12.5px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.2);
+  flex-shrink: 0;
 }
 
 .brandText {
@@ -56,10 +64,18 @@
 .brandTitle {
   font-weight: 800;
   font-size: 13px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   color: var(--color-text-primary);
   line-height: 1.15;
   white-space: nowrap;
+}
+
+.brandSubtitle {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .closeButton {
@@ -68,59 +84,61 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  border-radius: var(--radius-sm);
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
   color: var(--color-text-secondary);
   background: var(--color-background-soft);
   transition: all var(--transition-fast);
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.closeButton:hover {
+.closeButton:hover,
+.closeButton:active {
   background: #e2e8f0;
   color: var(--color-text-primary);
 }
 
 .drawerBody {
-  padding: 24px;
+  padding: 16px 20px 24px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 18px;
   flex: 1;
-}
-
-.navGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.groupLabel {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-text-muted);
-  padding-left: 8px;
 }
 
 .navList {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .navLink {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 14px;
-  font-size: 15px;
+  padding: 11px 16px;
+  min-height: 46px;
+  font-size: 14.5px;
   font-weight: 600;
-  color: var(--color-text-primary);
-  border-radius: var(--radius-sm);
+  color: #1e293b;
+  border-radius: var(--radius-md);
+  text-decoration: none;
   transition: all var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
 }
 
-.navLink:hover {
+.navLinkLabel {
+  font-size: 14px;
+}
+
+.navLink:hover,
+.navLink:active {
   background: var(--color-background-soft);
   color: var(--color-primary);
 }
@@ -128,18 +146,21 @@
 .activeLink {
   background: rgba(22, 118, 176, 0.08);
   color: var(--color-primary) !important;
+  font-weight: 700;
 }
 
 .arrow {
-  color: var(--color-text-muted);
+  color: #94a3b8;
+  flex-shrink: 0;
 }
 
 .drawerFooter {
   margin-top: auto;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding-top: 20px;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border-light);
 }
 
 @keyframes fadeIn {

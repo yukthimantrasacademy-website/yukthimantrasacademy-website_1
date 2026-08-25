@@ -173,13 +173,24 @@
 @media (max-width: 640px) {
   .moduleHeader {
     padding: 14px 16px;
+    min-height: 50px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .moduleTitle {
+    font-size: 14px;
   }
 
   .topicsContainer {
-    padding: 10px 14px 14px;
+    padding: 10px 12px 14px;
   }
 
   .topicItem {
-    padding: 8px 10px;
+    padding: 10px 12px;
+    min-height: 44px;
+  }
+
+  .topicName {
+    font-size: 12.5px;
   }
 }

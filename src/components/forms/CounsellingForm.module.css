@@ -188,14 +188,38 @@
 
 @media (max-width: 680px) {
   .formCard {
-    padding: 24px 16px;
+    padding: 24px 18px;
+    border-radius: 20px;
   }
 
   .grid2 {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .formTitle {
-    font-size: 24px;
+    font-size: clamp(22px, 5.5vw, 26px);
+  }
+
+  .formSubtitle {
+    font-size: 14px;
+  }
+
+  .input,
+  .select {
+    font-size: 16px; /* Prevents iOS Safari auto-zoom */
+    height: 48px;
+    border-radius: var(--radius-md);
+  }
+
+  .submitWrapper button {
+    width: 100%;
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 380px) {
+  .formCard {
+    padding: 18px 12px;
   }
 }

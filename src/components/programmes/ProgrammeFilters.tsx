@@ -7,19 +7,19 @@ import styles from './ProgrammeFilters.module.css';
 import { cn } from '@/lib/utils/cn';
 
 const categories: { label: string; value: ProgrammeCategory | '' }[] = [
-  { label: 'ALL PROGRAMMES', value: '' },
-  { label: 'DATA SCIENCE & ANALYTICS', value: 'Data Science & Analytics' },
-  { label: 'ARTIFICIAL INTELLIGENCE', value: 'Artificial Intelligence' },
-  { label: 'MEDICAL CODING', value: 'Medical Coding' },
-  { label: 'REVENUE CYCLE (RCM)', value: 'Revenue Cycle Management' },
-  { label: 'HEALTHCARE IT & OPS', value: 'Healthcare IT & Operations' },
-  { label: 'INTEGRATED PATHWAY', value: 'Integrated Pathway' },
+  { label: 'All Programmes', value: '' },
+  { label: 'Data Science & Analytics', value: 'Data Science & Analytics' },
+  { label: 'Artificial Intelligence', value: 'Artificial Intelligence' },
+  { label: 'Medical Coding', value: 'Medical Coding' },
+  { label: 'Revenue Cycle (RCM)', value: 'Revenue Cycle Management' },
+  { label: 'Healthcare IT & Ops', value: 'Healthcare IT & Operations' },
+  { label: 'Integrated Pathway', value: 'Integrated Pathway' },
 ];
 
-const groups: { label: string; value: ProgrammeGroup | '' }[] = [
-  { label: 'All Tracks', value: '' },
-  { label: 'Tech + AI (Group A)', value: 'Group A' },
-  { label: 'Healthcare Ops (Group B)', value: 'Group B' },
+const groups: { label: string; shortLabel: string; value: ProgrammeGroup | '' }[] = [
+  { label: 'All Tracks', shortLabel: 'All Tracks (11)', value: '' },
+  { label: 'Tech + AI (Group A)', shortLabel: 'Tech + AI (6)', value: 'Group A' },
+  { label: 'Healthcare Ops (Group B)', shortLabel: 'Healthcare Ops (5)', value: 'Group B' },
 ];
 
 interface ProgrammeFiltersProps {
@@ -68,19 +68,22 @@ export const ProgrammeFilters: React.FC<ProgrammeFiltersProps> = ({
       <div className={styles.subFilterBar}>
         <div className={styles.domainGroup}>
           <span className={styles.domainLabel}>Track:</span>
-          {groups.map((grp) => (
-            <button
-              key={grp.label}
-              type="button"
-              onClick={() => onGroupChange(grp.value)}
-              className={cn(
-                styles.domainBtn,
-                selectedGroup === grp.value && styles.activeDomainBtn
-              )}
-            >
-              {grp.label}
-            </button>
-          ))}
+          <div className={styles.domainButtonsWrap}>
+            {groups.map((grp) => (
+              <button
+                key={grp.label}
+                type="button"
+                onClick={() => onGroupChange(grp.value)}
+                className={cn(
+                  styles.domainBtn,
+                  selectedGroup === grp.value && styles.activeDomainBtn
+                )}
+              >
+                <span className={styles.domainFullLabel}>{grp.label}</span>
+                <span className={styles.domainShortLabel}>{grp.shortLabel}</span>
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className={styles.metaRight}>

@@ -420,26 +420,61 @@
   .whoGrid,
   .docsGrid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 
 @media (max-width: 768px) {
   .pageHero {
-    padding: 56px 0 28px;
+    margin-top: 68px;
+    padding: 48px 0 28px;
+  }
+
+  .whoSection,
+  .preferredSection,
+  .docsSection,
+  .notEligibleSection {
+    padding: 48px 0;
   }
 
   .statementBox {
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px;
+    padding: 20px 16px;
+    border-radius: 20px;
+    gap: 14px;
   }
 
   .whoGrid,
   .docsGrid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
+  .whoCard,
+  .docCard,
+  .preferredCard,
   .notEligibleCard {
-    padding: 24px 20px;
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+
+  .statementCta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .whoCard,
+  .docCard,
+  .preferredCard,
+  .notEligibleCard,
+  .statementBox {
+    padding: 18px 12px;
+  }
+
+  .whoTitle {
+    font-size: 17px;
   }
 }

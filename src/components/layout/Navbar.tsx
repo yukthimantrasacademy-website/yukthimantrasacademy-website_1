@@ -112,7 +112,10 @@ export const Navbar: React.FC = () => {
             {/* Logo + Academy Name */}
             <Link href="/" className={styles.logoLink} aria-label="YukthiMantra's Academy Home">
               <span className={styles.logoSymbol}>YM</span>
-              <span className={styles.brandTitle}>YUKTHIMANTRA&apos;S ACADEMY</span>
+              <span className={styles.brandTitle}>
+                <span className={styles.brandMain}>YUKTHIMANTRA&apos;S</span>
+                <span className={styles.brandSub}>ACADEMY</span>
+              </span>
             </Link>
 
             <nav className={styles.desktopNav} aria-label="Primary Left Navigation">

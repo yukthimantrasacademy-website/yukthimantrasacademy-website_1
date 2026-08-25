@@ -831,13 +831,32 @@
   }
 }
 
+@media (max-width: 768px) {
+  .tabsNavBar {
+    gap: 18px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0;
+  }
+
+  .tabsNavBar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tabBtn {
+    font-size: 13.5px;
+    padding-bottom: 10px;
+  }
+}
+
 @media (max-width: 640px) {
   .breadcrumbArea {
-    margin-top: 70px;
+    margin-top: 68px;
   }
 
   .mediaShowcaseContainer {
-    min-height: 220px;
+    min-height: 200px;
     border-radius: 18px;
   }
 
@@ -850,7 +869,22 @@
   }
 
   .contentBlock {
-    padding: 20px;
-    border-radius: 16px;
+    padding: 20px 16px;
+    border-radius: 18px;
+  }
+
+  .sidebarCard {
+    padding: 18px 16px;
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 380px) {
+  .contentBlock {
+    padding: 16px 12px;
+  }
+
+  .blockHeading {
+    font-size: 17px;
   }
 }

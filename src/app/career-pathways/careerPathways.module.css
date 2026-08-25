@@ -939,17 +939,23 @@
 @media (max-width: 1024px) {
   .pathway3DGrid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .degreeMatrixGrid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
 @media (max-width: 900px) {
   .chronoHero {
-    padding: 90px 20px 60px;
+    padding: 80px 20px 48px;
     min-height: auto;
+  }
+
+  .chronoHeroTitle {
+    font-size: clamp(28px, 6.5vw, 52px);
   }
 
   .floatingWidget {
@@ -957,8 +963,74 @@
   }
 
   .category3DBlock {
-    padding: 24px;
+    padding: 24px 20px;
     border-radius: 24px;
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .chronoHero {
+    padding: 72px 16px 40px;
+  }
+
+  .heroCtaRow {
+    flex-direction: column;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    gap: 10px;
+  }
+
+  .categoryHeaderTop {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .category3DBlock {
+    padding: 20px 16px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+  }
+
+  .categoryTitle {
+    font-size: 22px;
+  }
+
+  .pathway3DCard {
+    padding: 20px 16px;
+    border-radius: 20px;
+  }
+
+  .degree3DCard {
+    padding: 20px 16px;
+    border-radius: 20px;
+  }
+
+  .pathwayCardActions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .pathwayPrimaryBtn,
+  .pathwaySecondaryBtn {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .category3DBlock,
+  .pathway3DCard,
+  .degree3DCard {
+    padding: 16px 12px;
+  }
+
+  .pathwayTitleLarge {
+    font-size: 18px;
   }
 }
 

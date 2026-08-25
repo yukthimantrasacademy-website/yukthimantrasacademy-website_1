@@ -23,10 +23,12 @@ export function createFloatLoop(
 ): gsap.core.Tween | null {
   if (!isClient() || prefersReducedMotion()) return null;
 
+  const isMobile = window.innerWidth < 768;
+
   const {
-    yAmplitude = 8,
-    duration = TIMING.floatCycle,
-    rotationAmplitude = 0,
+    yAmplitude = isMobile ? 2 : 8,
+    duration = isMobile ? 3.5 : TIMING.floatCycle,
+    rotationAmplitude = isMobile ? 0 : 0,
   } = config || {};
 
   const vars: gsap.TweenVars = {

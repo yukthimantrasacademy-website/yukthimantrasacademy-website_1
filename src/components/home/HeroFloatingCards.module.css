@@ -429,32 +429,178 @@
   transform: scaleY(1.05);
 }
 
+/* Mobile Tabs Nav (Hidden on Desktop) */
+.mobileTabsNav {
+  display: none;
+}
+
+.mobileTabBtn {
+  font-family: inherit;
+}
+
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
-@media (max-width: 960px) {
+@media (max-width: 960px) and (min-width: 769px) {
   .floatingCardsContainer {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 0;
   }
 
-  .cardLeftWrapper,
+  .cardLeftWrapper {
+    margin-right: -30px;
+  }
+
   .cardRightWrapper {
-    margin: 0;
+    margin-left: -30px;
   }
 
   .cardLeft,
   .cardRight {
-    transform: none;
-    width: 100%;
-    max-width: 360px;
-    height: auto;
-    min-height: 240px;
+    width: 250px;
+    height: 240px;
+    padding: 18px 16px 0;
   }
 
   .cardCenter {
+    width: 330px;
+    height: 280px;
+    padding: 22px 22px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .floatingCardsContainer {
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    max-width: 380px;
+    margin-top: 18px;
+  }
+
+  .mobileTabsNav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto 16px;
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 4px;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    z-index: 15;
+  }
+
+  .mobileTabBtn {
+    flex: 1;
+    padding: 8px 10px;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.92);
+    border-radius: var(--radius-pill);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mobileTabBtnActive {
+    background: #ffffff;
+    color: #0f172a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  .cardWrapper {
+    display: none;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .cardWrapper.mobileCardVisible {
+    display: block;
+    animation: cardFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes cardFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .cardLeftWrapper,
+  .cardCenterWrapper,
+  .cardRightWrapper {
+    margin: 0 !important;
+    z-index: 10;
+  }
+
+  .cardLeft,
+  .cardCenter,
+  .cardRight {
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 260px;
+    padding: 22px 20px 16px !important;
+    border-radius: 20px;
+    box-shadow: 0 16px 40px rgba(16, 24, 40, 0.12);
+  }
+
+  .cardHeaderSmall,
+  .cardHeaderMain {
+    margin-bottom: 12px;
+  }
+
+  .cardTitleSmall {
+    font-size: 14.5px;
+    white-space: normal;
+  }
+
+  .cardTitleMain {
+    font-size: 16px;
+  }
+
+  .metricValueLarge {
+    font-size: 30px;
+  }
+
+  .gaugeContainer {
+    height: 185px;
+  }
+
+  .gaugePercentage {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 380px) {
+  .mobileTabsNav {
+    padding: 3px;
+  }
+
+  .mobileTabBtn {
+    font-size: 10.5px;
+    padding: 6px 8px;
+  }
+
+  .cardLeft,
+  .cardCenter,
+  .cardRight {
+    padding: 18px 16px 14px !important;
   }
 }

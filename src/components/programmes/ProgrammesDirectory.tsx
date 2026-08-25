@@ -87,6 +87,9 @@ export const ProgrammesDirectory: React.FC<ProgrammesDirectoryProps> = ({
   groupAProgrammes,
   groupBProgrammes,
 }) => {
+  // Mobile active group tab ('A' or 'B')
+  const [activeMobileGroup, setActiveMobileGroup] = useState<'A' | 'B'>('A');
+
   // Default to first programme
   const [activeProgramme, setActiveProgramme] = useState<Programme>(
     groupAProgrammes[0] || groupBProgrammes[0]
@@ -142,9 +145,37 @@ export const ProgrammesDirectory: React.FC<ProgrammesDirectoryProps> = ({
 
   return (
     <div className={styles.directoryCard} ref={containerRef}>
+      {/* Mobile Group Switcher (Visible only on screens <= 768px) */}
+      <div className={styles.mobileGroupTabs} role="tablist" aria-label="Programme Groups">
+        <button
+          type="button"
+          role="tab"
+          aria-selected={activeMobileGroup === 'A'}
+          className={cn(styles.mobileGroupTab, activeMobileGroup === 'A' && styles.mobileGroupTabActive)}
+          onClick={() => {
+            setActiveMobileGroup('A');
+            if (groupAProgrammes[0]) setActiveProgramme(groupAProgrammes[0]);
+          }}
+        >
+          Group A: Data &amp; AI
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={activeMobileGroup === 'B'}
+          className={cn(styles.mobileGroupTab, activeMobileGroup === 'B' && styles.mobileGroupTabActive)}
+          onClick={() => {
+            setActiveMobileGroup('B');
+            if (groupBProgrammes[0]) setActiveProgramme(groupBProgrammes[0]);
+          }}
+        >
+          Group B: Medical Coding
+        </button>
+      </div>
+
       <div className={styles.directoryGrid}>
         {/* COLUMN 1: GROUP A (DATA & AI TRACKS) */}
-        <div className={styles.directoryColumn}>
+        <div className={cn(styles.directoryColumn, activeMobileGroup !== 'A' && styles.hideOnMobile)}>
           <div className={styles.columnEyebrow}>GROUP A • DATA &amp; AI TRACKS</div>
           <div className={styles.directoryList}>
             {groupAProgrammes.map((prog) => {
@@ -156,6 +187,7 @@ export const ProgrammesDirectory: React.FC<ProgrammesDirectoryProps> = ({
                   className={cn(styles.directoryItem, isSelected && styles.activeItem)}
                   onMouseEnter={() => setActiveProgramme(prog)}
                   onFocus={() => setActiveProgramme(prog)}
+                  onClick={() => setActiveProgramme(prog)}
                 >
                   <div className={styles.itemIconWrap}>
                     {getProgrammeIcon(prog.slug)}
@@ -171,7 +203,7 @@ export const ProgrammesDirectory: React.FC<ProgrammesDirectoryProps> = ({
         </div>
 
         {/* COLUMN 2: GROUP B (MEDICAL CODING & OPERATIONS) */}
-        <div className={styles.directoryColumn}>
+        <div className={cn(styles.directoryColumn, activeMobileGroup !== 'B' && styles.hideOnMobile)}>
           <div className={styles.columnEyebrow}>GROUP B • MEDICAL CODING &amp; OPS</div>
           <div className={styles.directoryList}>
             {groupBProgrammes.map((prog) => {
@@ -183,6 +215,7 @@ export const ProgrammesDirectory: React.FC<ProgrammesDirectoryProps> = ({
                   className={cn(styles.directoryItem, isSelected && styles.activeItem)}
                   onMouseEnter={() => setActiveProgramme(prog)}
                   onFocus={() => setActiveProgramme(prog)}
+                  onClick={() => setActiveProgramme(prog)}
                 >
                   <div className={styles.itemIconWrap}>
                     {getProgrammeIcon(prog.slug)}

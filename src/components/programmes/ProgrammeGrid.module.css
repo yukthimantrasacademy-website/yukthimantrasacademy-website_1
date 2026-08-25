@@ -12,10 +12,22 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1024px) {
+  .cols3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .cols2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
   .cols2,
   .cols3 {
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 16px;
   }
 }

@@ -781,30 +781,40 @@
 @media (max-width: 1080px) {
   .bentoContainer {
     grid-template-columns: 1fr;
+    gap: 18px;
   }
 
   .cardDiscoverApp {
-    min-height: 540px;
+    min-height: 480px;
   }
 }
 
 @media (max-width: 768px) {
   .cardMergedBottom {
     grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 24px 20px;
+    gap: 20px;
+    padding: 22px 18px;
+    border-radius: 20px;
   }
 
   .mergedDivider {
     display: none;
   }
+
+  .topRow {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .cardPathways,
+  .cardTeamwork,
+  .cardDiscoverApp {
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
 }
 
 @media (max-width: 640px) {
-  .topRow {
-    grid-template-columns: 1fr;
-  }
-
   .cardPathways,
   .cardTeamwork {
     min-height: auto;
@@ -812,12 +822,26 @@
 
   .radialNetworkArea,
   .pathwayPhotoWrapper {
-    height: 180px;
+    height: 170px;
   }
 
   .partnerLogosFooter {
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 8px;
     justify-content: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .cardPathways,
+  .cardTeamwork,
+  .cardMergedBottom,
+  .cardDiscoverApp {
+    padding: 18px 14px;
+  }
+
+  .pathwaysTitle,
+  .securityTitle {
+    font-size: 18px;
   }
 }

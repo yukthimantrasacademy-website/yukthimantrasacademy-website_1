@@ -1,35 +1,35 @@
 .filterWrapper {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
   width: 100%;
   align-items: center;
 }
 
-/* PRIMARY CATEGORY PILLS (CENTERED LIKE REFERENCE IMAGE) */
+/* PRIMARY CATEGORY PILLS */
 .pillContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
-  max-width: 980px;
+  max-width: 1020px;
 }
 
 .filterPill {
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  padding: 8px 18px;
-  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
   background: #ffffff;
-  color: #334155;
+  color: #475569;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 2px 6px rgba(16, 24, 40, 0.02);
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.04);
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .filterPill:hover {
@@ -43,7 +43,8 @@
   background: #0f172a !important;
   color: #ffffff !important;
   border-color: #0f172a !important;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.25) !important;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2) !important;
 }
 
 /* SUB-BAR */
@@ -52,10 +53,11 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 12px 18px;
-  background: #f8fafc;
+  padding: 10px 18px;
+  background: #ffffff;
   border-radius: 16px;
   border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.03);
   flex-wrap: wrap;
   gap: 12px;
 }
@@ -64,37 +66,57 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  flex-wrap: wrap;
+}
+
+.domainButtonsWrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .domainLabel {
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 700;
   color: #64748b;
-  margin-right: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: 2px;
 }
 
 .domainBtn {
   font-size: 12px;
   font-weight: 600;
-  padding: 4px 12px;
-  border-radius: var(--radius-md);
-  background: #ffffff;
+  padding: 6px 14px;
+  border-radius: 10px;
+  background: #f8fafc;
   color: #475569;
   border: 1px solid #e2e8f0;
   cursor: pointer;
   transition: all 0.15s ease;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .domainBtn:hover {
   border-color: #0584c6;
   color: #0584c6;
+  background: #f0f9ff;
 }
 
 .activeDomainBtn {
   background: #0584c6 !important;
   color: #ffffff !important;
   border-color: #0584c6 !important;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(5, 132, 198, 0.25);
+}
+
+.domainFullLabel {
+  display: inline;
+}
+
+.domainShortLabel {
+  display: none;
 }
 
 .metaRight {
@@ -104,7 +126,7 @@
 }
 
 .countText {
-  font-size: 13px;
+  font-size: 12.5px;
   color: #64748b;
 }
 
@@ -115,9 +137,9 @@
   background: #ffffff;
   border: 1px solid #e2e8f0;
   color: #64748b;
-  padding: 4px 10px;
-  border-radius: var(--radius-md);
-  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 11.5px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -130,8 +152,91 @@
 }
 
 @media (max-width: 768px) {
+  .filterWrapper {
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .pillContainer {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    padding: 4px 16px 10px;
+    margin: 0 -16px;
+    width: calc(100% + 32px);
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    gap: 6px;
+  }
+
+  .pillContainer::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filterPill {
+    flex-shrink: 0;
+    min-height: 38px;
+    padding: 8px 14px;
+    font-size: 12px;
+    scroll-snap-align: start;
+    border-radius: var(--radius-pill);
+  }
+
   .subFilterBar {
     flex-direction: column;
+    align-items: stretch;
+    padding: 12px 14px;
+    border-radius: 16px;
+    gap: 10px;
+  }
+
+  .domainGroup {
+    flex-direction: column;
     align-items: flex-start;
+    width: 100%;
+    gap: 6px;
+  }
+
+  .domainButtonsWrap {
+    width: 100%;
+    display: flex;
+    gap: 4px;
+  }
+
+  .domainBtn {
+    flex: 1;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11.5px;
+    padding: 6px 4px;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .domainFullLabel {
+    display: none;
+  }
+
+  .domainShortLabel {
+    display: inline;
+  }
+
+  .metaRight {
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 8px;
+    border-top: 1px solid #f1f5f9;
+  }
+
+  .countText {
+    font-size: 11.5px;
+  }
+
+  .resetButton {
+    min-height: 32px;
+    padding: 4px 10px;
   }
 }

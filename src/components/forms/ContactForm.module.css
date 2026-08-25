@@ -129,10 +129,34 @@
 
 @media (max-width: 680px) {
   .formCard {
-    padding: 24px 16px;
+    padding: 24px 18px;
+    border-radius: 20px;
   }
 
   .grid2 {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .formTitle {
+    font-size: 22px;
+  }
+
+  .input,
+  .select,
+  .textarea {
+    font-size: 16px; /* Prevents iOS Safari auto-zoom */
+    border-radius: var(--radius-md);
+  }
+
+  .form button {
+    width: 100%;
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 380px) {
+  .formCard {
+    padding: 18px 12px;
   }
 }

@@ -1,0 +1,35 @@
+.wordmarkContainer {
+  width: 100%;
+  padding: 40px 24px 16px;
+  margin-top: 44px;
+  user-select: none;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: visible;
+  cursor: default;
+}
+
+.heroSvg {
+  width: 100%;
+  max-width: 1560px;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.svgWordmarkText {
+  font-family: var(--font-ui), "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  font-size: 136px;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+}
+
+@media (max-width: 768px) {
+  .wordmarkContainer {
+    padding: 24px 16px 12px;
+    margin-top: 32px;
+  }
+}

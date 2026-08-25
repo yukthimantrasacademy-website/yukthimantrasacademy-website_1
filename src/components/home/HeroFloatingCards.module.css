@@ -1,0 +1,460 @@
+.floatingCardsContainer {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 980px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0;
+  margin-top: 14px;
+  padding-bottom: 0;
+}
+
+.cardWrapper {
+  position: relative;
+  perspective: 1000px;
+}
+
+.floatingCard {
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(16, 24, 40, 0.12), 0 4px 16px rgba(16, 24, 40, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  user-select: none;
+}
+
+/* ==========================================================================
+   LEFT CARD (Healthcare Analytics)
+   ========================================================================== */
+.cardLeftWrapper {
+  margin-right: -40px;
+  margin-bottom: 10px;
+  z-index: 2;
+}
+
+.cardLeft {
+  width: 290px;
+  height: 260px;
+  padding: 22px 20px 0;
+  transform: rotate(-6deg);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardLeft:hover {
+  transform: rotate(-2deg) translateY(-8px) scale(1.02);
+  box-shadow: 0 32px 70px rgba(16, 24, 40, 0.18);
+  z-index: 8;
+}
+
+/* ==========================================================================
+   CENTER CARD (Medical Coding & Operations - Main Front)
+   ========================================================================== */
+.cardCenterWrapper {
+  z-index: 5;
+}
+
+.cardCenter {
+  width: 380px;
+  height: 300px;
+  padding: 26px 28px 0;
+  box-shadow: 0 32px 80px rgba(16, 24, 40, 0.18), 0 8px 24px rgba(16, 24, 40, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardCenter:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 40px 90px rgba(0, 82, 255, 0.22);
+}
+
+/* ==========================================================================
+   RIGHT CARD (Clinical AI & LLMs)
+   ========================================================================== */
+.cardRightWrapper {
+  margin-left: -40px;
+  margin-bottom: 10px;
+  z-index: 2;
+}
+
+.cardRight {
+  width: 290px;
+  height: 260px;
+  padding: 22px 20px 0;
+  transform: rotate(6deg);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardRight:hover {
+  transform: rotate(2deg) translateY(-8px) scale(1.02);
+  box-shadow: 0 32px 70px rgba(16, 24, 40, 0.18);
+  z-index: 8;
+}
+
+/* ==========================================================================
+   CARD HEADERS & DROPDOWNS
+   ========================================================================== */
+.cardHeaderSmall {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.cardTitleSmall {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #101828;
+  white-space: nowrap;
+}
+
+.dropdownWrap {
+  position: relative;
+}
+
+.dropdownTriggerBtn {
+  font-size: 11px;
+  font-weight: 600;
+  color: #475467;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #f2f4f7;
+  padding: 4px 9px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(16, 24, 40, 0.06);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.dropdownTriggerBtn:hover,
+.dropdownActive {
+  background: #e2e8f0;
+  color: #0f172a;
+  border-color: rgba(5, 132, 198, 0.3);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 16px 36px rgba(16, 24, 40, 0.16), 0 2px 8px rgba(16, 24, 40, 0.04);
+  border: 1px solid rgba(16, 24, 40, 0.08);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 100;
+  min-width: 170px;
+  animation: menuFadeIn 0.2s ease forwards;
+}
+
+@keyframes menuFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #334155;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+
+.dropdownItem:hover {
+  background: #f0f7ff;
+  color: #0584c6;
+}
+
+.dropdownItemActive {
+  background: #e0f2fe;
+  color: #0369a1;
+  font-weight: 700;
+}
+
+.dropdownItemValue {
+  font-size: 11px;
+  font-weight: 700;
+  color: #0584c6;
+}
+
+/* ==========================================================================
+   METRIC ROW
+   ========================================================================== */
+.metricRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.metricValueLarge {
+  font-size: 32px;
+  font-weight: 800;
+  color: #101828;
+  line-height: 1;
+  font-family: var(--font-ui);
+  letter-spacing: -0.02em;
+}
+
+.growthBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #027a48;
+  background: #ecfdf3;
+  padding: 2px 7px;
+  border-radius: var(--radius-md);
+}
+
+/* ==========================================================================
+   INTERACTIVE BAR CHART (LEFT CARD)
+   ========================================================================== */
+.barChartVisual {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 105px;
+  gap: 7px;
+  padding-bottom: 8px;
+  margin-top: auto;
+}
+
+.barColWrap {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer;
+}
+
+.chartBar {
+  width: 100%;
+  background: linear-gradient(180deg, #b2ddff 0%, #e0f2fe 100%);
+  border-radius: 7px 7px 3px 3px;
+  transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, transform 0.2s ease;
+  transform-origin: bottom center;
+}
+
+.barColWrap:hover .chartBar,
+.barActive .chartBar {
+  background: linear-gradient(180deg, #0584c6 0%, #38bdf8 100%);
+  box-shadow: 0 4px 12px rgba(5, 132, 198, 0.35);
+  transform: scaleY(1.05);
+}
+
+.barTooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 7px;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  animation: tooltipPop 0.15s ease forwards;
+}
+
+@keyframes tooltipPop {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* ==========================================================================
+   CENTER CARD GAUGE ARC
+   ========================================================================== */
+.cardHeaderMain {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.cardTitleMain {
+  font-size: 17.5px;
+  font-weight: 800;
+  color: #101828;
+  letter-spacing: -0.01em;
+}
+
+.gaugeContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gaugeArc {
+  position: relative;
+  width: 170px;
+  height: 96px;
+  margin-top: 6px;
+}
+
+.gaugeTick {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 9.5px;
+  height: 24px;
+  border-radius: 5px;
+  transform-origin: bottom center;
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  cursor: pointer;
+}
+
+.tickActive {
+  background: #0052ff;
+  box-shadow: 0 0 12px rgba(0, 82, 255, 0.65), 0 0 20px rgba(0, 82, 255, 0.35);
+}
+
+.tickInactive {
+  background: #e2e8f0;
+  box-shadow: none;
+}
+
+.gaugeTick:hover {
+  transform: scaleY(1.2);
+}
+
+.gaugeCenterText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.gaugePercentage {
+  font-size: 38px;
+  font-weight: 800;
+  color: #101828;
+  line-height: 1;
+  font-family: var(--font-ui);
+  letter-spacing: -0.02em;
+  transition: color 0.2s ease;
+}
+
+.gaugeLabel {
+  font-size: 12px;
+  color: #667085;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.interactiveHint {
+  font-size: 9.5px;
+  color: #0584c6;
+  font-weight: 600;
+  margin-top: 2px;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   RIGHT CARD BUBBLES / DOTS CHART
+   ========================================================================== */
+.dotsChartVisual {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 105px;
+  gap: 8px;
+  padding-bottom: 8px;
+  margin-top: auto;
+}
+
+.dotColWrap {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer;
+}
+
+.dotBubble {
+  width: 100%;
+  background: linear-gradient(180deg, #93c5fd 0%, #dbeafe 100%);
+  border-radius: 8px 8px 4px 4px;
+  transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, transform 0.2s ease;
+  transform-origin: bottom center;
+}
+
+.dotColWrap:hover .dotBubble,
+.dotActive .dotBubble {
+  background: linear-gradient(180deg, #2563eb 0%, #60a5fa 100%);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+  transform: scaleY(1.05);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 960px) {
+  .floatingCardsContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .cardLeftWrapper,
+  .cardRightWrapper {
+    margin: 0;
+  }
+
+  .cardLeft,
+  .cardRight {
+    transform: none;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    min-height: 240px;
+  }
+
+  .cardCenter {
+    width: 100%;
+    max-width: 380px;
+  }
+}

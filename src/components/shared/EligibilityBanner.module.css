@@ -1,0 +1,80 @@
+.bannerWrapper {
+  background: linear-gradient(135deg, #103854 0%, #1676b0 100%);
+  color: #ffffff;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  position: relative;
+  z-index: 30;
+}
+
+.compact {
+  padding: 10px 0;
+}
+
+.bannerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.contentLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+.iconBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: rgba(192, 240, 80, 0.2);
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+}
+
+.message {
+  font-size: 14px;
+  line-height: 1.45;
+  color: #f1f5f9;
+  font-weight: 400;
+}
+
+.actionRight {
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .bannerContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .actionRight {
+    width: 100%;
+  }
+
+  .actionRight a,
+  .actionRight button {
+    width: 100%;
+  }
+}

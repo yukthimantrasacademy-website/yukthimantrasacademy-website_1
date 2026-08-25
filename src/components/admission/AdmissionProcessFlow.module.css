@@ -1,0 +1,325 @@
+.processWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 0 60px;
+}
+
+/* ==========================================================================
+   SVG DOTTED CONNECTOR PATHS (ON-SCROLL DYNAMIC DRAW)
+   ========================================================================== */
+.svgConnectorsContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
+}
+
+.basePath {
+  stroke: #e2e8f0;
+  stroke-width: 2;
+  stroke-dasharray: 6 6;
+  fill: none;
+}
+
+.activePath {
+  stroke: #0584c6;
+  stroke-width: 2.5;
+  stroke-dasharray: 6 6;
+  fill: none;
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+.pathArrow {
+  fill: #0584c6;
+  transition: fill 0.3s ease, opacity 0.3s ease;
+}
+
+/* ==========================================================================
+   STEPS GRID (ZIG-ZAG 6-STEP STAGGERED LAYOUT)
+   ========================================================================== */
+.stepsGrid {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 68px;
+}
+
+.stepRow {
+  display: flex;
+  width: 100%;
+}
+
+.stepRowLeft {
+  justify-content: flex-start;
+  padding-left: 20px;
+}
+
+.stepRowRight {
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+/* ==========================================================================
+   MODERN STEP CARD (RICH & INFORMATIVE)
+   ========================================================================== */
+.stepCard {
+  width: 100%;
+  max-width: 500px;
+  background: linear-gradient(135deg, #ffffff 72%, #f0f9ff 100%);
+  border-radius: 28px;
+  border: 1.5px solid #edf2f7;
+  box-shadow: 0 10px 32px rgba(16, 24, 40, 0.04), 0 2px 6px rgba(16, 24, 40, 0.02);
+  padding: 26px 28px 22px 20px;
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.stepCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  background: linear-gradient(90deg, #0584c6 0%, #38bdf8 50%, #10b981 100%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.stepCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(5, 132, 198, 0.4);
+  box-shadow: 0 20px 48px rgba(5, 132, 198, 0.12), 0 4px 12px rgba(5, 132, 198, 0.06);
+}
+
+.stepCard:hover::before {
+  opacity: 1;
+}
+
+.stepCardActive {
+  border-color: #0584c6;
+  box-shadow: 0 16px 40px rgba(5, 132, 198, 0.12), 0 0 0 1px rgba(5, 132, 198, 0.25);
+}
+
+.stepCardActive::before {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   VERTICAL PILL BAR (WEBSITE GRADIENT ON ALL CARDS)
+   ========================================================================== */
+.verticalPill {
+  width: 42px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #0584c6 0%, #0284c7 50%, #0369a1 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 16px 0;
+  box-shadow: 0 6px 16px rgba(5, 132, 198, 0.28), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.25s ease;
+}
+
+.stepCard:hover .verticalPill {
+  transform: scale(1.04);
+}
+
+.verticalPillText {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  font-family: var(--font-display), "Plus Jakarta Sans", sans-serif;
+}
+
+/* ==========================================================================
+   CARD BODY CONTENT
+   ========================================================================== */
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  justify-content: center;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.iconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: #f0f9ff;
+  border: 1px solid rgba(5, 132, 198, 0.22);
+  color: #0584c6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(5, 132, 198, 0.12);
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.stepCard:hover .iconBox {
+  transform: scale(1.08) rotate(5deg);
+  background: #0584c6;
+  color: #ffffff;
+}
+
+.stepTitle {
+  font-size: 18.5px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  font-family: var(--font-display), "Plus Jakarta Sans", sans-serif;
+}
+
+.stepDescription {
+  font-size: 13.5px;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ==========================================================================
+   CARD POINTS & DELIVERABLES LIST
+   ========================================================================== */
+.pointsList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 0;
+  border-top: 1px dashed #e2e8f0;
+  border-bottom: 1px dashed #e2e8f0;
+  list-style: none;
+  margin: 0;
+}
+
+.pointItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #334155;
+  font-weight: 600;
+}
+
+.pointCheck {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #e0f2fe;
+  color: #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   CARD FOOTER BADGES & PROGRESS
+   ========================================================================== */
+.cardFooterChips {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.footerChip {
+  font-size: 11px;
+  font-weight: 700;
+  color: #0369a1;
+  background: #f0f9ff;
+  border: 1px solid rgba(5, 132, 198, 0.2);
+  padding: 3px 10px;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chipDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #0584c6;
+}
+
+.outcomeBadge {
+  font-size: 11px;
+  font-weight: 700;
+  color: #15803d;
+  background: #f0fdf4;
+  border: 1px solid #dcfce7;
+  padding: 3px 10px;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Micro Progress Bar */
+.cardProgressBarWrap {
+  width: 100%;
+  height: 4px;
+  background: #f1f5f9;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 2px;
+}
+
+.cardProgressBar {
+  height: 100%;
+  background: linear-gradient(90deg, #0584c6 0%, #38bdf8 50%, #10b981 100%);
+  border-radius: 2px;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 860px) {
+  .svgConnectorsContainer {
+    display: none;
+  }
+
+  .stepsGrid {
+    gap: 24px;
+  }
+
+  .stepRowLeft,
+  .stepRowRight {
+    padding: 0;
+    justify-content: center;
+  }
+
+  .stepCard {
+    max-width: 100%;
+  }
+}

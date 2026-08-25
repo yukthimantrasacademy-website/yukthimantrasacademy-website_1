@@ -1,0 +1,470 @@
+.bentoGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 1.25fr 1fr;
+  gap: 24px;
+  width: 100%;
+  margin-top: 36px;
+  perspective: 1200px;
+}
+
+.bentoCard {
+  position: relative;
+  border-radius: 26px;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+  user-select: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   CARD 1: BLUE CARD (YM ACADEMY - 11+ PROGRAMMES)
+   ========================================================================== */
+.bentoCardBlue {
+  background: linear-gradient(145deg, #38bdf8 0%, #0284c7 60%, #0369a1 100%);
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 350px;
+  box-shadow: 0 14px 40px rgba(2, 132, 199, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.bentoCardBlue:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 24px 60px rgba(2, 132, 199, 0.35);
+}
+
+.bentoCardBlue::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.blueCardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.blueCardBrand {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.blueCardIconWrap {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease;
+}
+
+.bentoCardBlue:hover .blueCardIconWrap {
+  transform: rotate(15deg) scale(1.12);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.blueCardOverlay {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 22px 20px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.bentoCardBlue:hover .blueCardOverlay {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.16);
+}
+
+.overlayMetric {
+  font-size: 42px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--font-ui);
+  letter-spacing: -0.02em;
+}
+
+.overlayText {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.cardTagsRow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.miniTag {
+  font-size: 10px;
+  font-weight: 700;
+  color: #0284c7;
+  background: #f0f9ff;
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  padding: 3px 8px;
+  border-radius: var(--radius-md);
+}
+
+/* ==========================================================================
+   CARD 2: LIGHT MIDDLE CARD (100% OUTCOMES & INTERACTIVE AVATARS)
+   ========================================================================== */
+.bentoCardLight {
+  background: #ffffff;
+  border-radius: 26px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.04);
+  min-height: 350px;
+}
+
+.bentoCardLight:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 20px 50px rgba(16, 24, 40, 0.1);
+  border-color: rgba(5, 132, 198, 0.25);
+}
+
+.lightCardHeaderWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.lightCardHeader {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.verifiedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #059669;
+  background: #ecfdf5;
+  padding: 3px 8px;
+  border-radius: var(--radius-md);
+}
+
+.greenDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
+}
+
+.lightCardMetric {
+  font-size: 46px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1;
+  margin-bottom: 20px;
+  font-family: var(--font-ui);
+  letter-spacing: -0.02em;
+}
+
+.avatarsRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.avatarInteractiveWrap {
+  position: relative;
+}
+
+.avatarCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2.5px solid #ffffff;
+  margin-right: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.avatarCircle:hover {
+  transform: translateY(-6px) scale(1.22);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  z-index: 20;
+}
+
+.avatarTooltip {
+  position: absolute;
+  top: -34px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 50;
+  animation: tooltipIn 0.15s ease forwards;
+}
+
+@keyframes tooltipIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.lightCardQuote {
+  font-size: 12.5px;
+  color: #475467;
+  line-height: 1.55;
+  margin-top: auto;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   COLUMN 3: STACKED RIGHT CARDS
+   ========================================================================== */
+.bentoColRight {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  justify-content: space-between;
+}
+
+/* CARD 3: LIME ACCENT CARD (50K+ DATA POINTS) */
+.bentoCardLime {
+  background: #c0f050;
+  border-radius: 26px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  box-shadow: 0 12px 32px rgba(192, 240, 80, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bentoCardLime:hover {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 20px 48px rgba(192, 240, 80, 0.45);
+}
+
+.bentoCardLime::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.45) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.limeCardTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.limeCardHeader {
+  font-size: 13px;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+.limePulseIcon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+}
+
+.limeCardMetric {
+  font-size: 46px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1;
+  margin-bottom: 10px;
+  font-family: var(--font-ui);
+  letter-spacing: -0.02em;
+}
+
+.limeCardDesc {
+  font-size: 12.5px;
+  color: #1e293b;
+  line-height: 1.45;
+  opacity: 0.9;
+}
+
+/* Interactive Floating Data Badges inside Lime Card */
+.limeChipsRow {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.limeChip {
+  font-size: 10px;
+  font-weight: 800;
+  background: rgba(15, 23, 42, 0.08);
+  color: #0f172a;
+  padding: 3px 8px;
+  border-radius: var(--radius-md);
+}
+
+/* CARD 4: DARK BOTTOM CARD (4 TRACKS) */
+.bentoCardDark {
+  background: #0f172a;
+  border-radius: 22px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+  min-height: 116px;
+}
+
+.bentoCardDark:hover {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 16px 44px rgba(15, 23, 42, 0.45);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.darkCardTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.darkCardLabel {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.01em;
+}
+
+.darkArrowWrap {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.bentoCardDark:hover .darkArrowWrap {
+  background: #ffffff;
+  color: #0f172a;
+  transform: translateX(3px);
+}
+
+.darkCardBottomRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 8px;
+}
+
+.darkCardMetric {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  font-family: var(--font-ui);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.darkTrackPills {
+  display: flex;
+  gap: 4px;
+  flex-wrap: nowrap;
+}
+
+.darkDotPill {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  padding: 3px 7px;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .bentoGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .bentoCardBlue,
+  .bentoCardLight {
+    min-height: auto;
+  }
+}

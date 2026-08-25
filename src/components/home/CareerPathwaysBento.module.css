@@ -1,0 +1,823 @@
+.bentoContainer {
+  display: grid;
+  grid-template-columns: 1.85fr 1fr;
+  gap: 24px;
+  width: 100%;
+  margin-top: 48px;
+  align-items: stretch;
+}
+
+.bentoLeftGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.topRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  width: 100%;
+}
+
+/* ==========================================================================
+   TOP ROW CARDS: BASE STYLES
+   ========================================================================== */
+.cardPathways,
+.cardTeamwork {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 28px 24px 22px;
+  border: 1px solid rgba(16, 24, 40, 0.08);
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  min-height: 380px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.cardPathways:hover,
+.cardTeamwork:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px rgba(16, 24, 40, 0.08);
+  border-color: rgba(5, 132, 198, 0.25);
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 2;
+}
+
+.cardHeading {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.cardSubtext {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   CARD 1: TECHNOLOGY + AI (PHOTO WITH FLOATING TAG BAR)
+   ========================================================================== */
+.pathwayPhotoWrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 16px;
+  background: #f1f5f9;
+}
+
+.pathwayPhotoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.cardPathways:hover .pathwayPhotoImg {
+  transform: scale(1.06);
+}
+
+.pathwayTagBar {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  z-index: 2;
+}
+
+.tagPill {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #0f172a;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 11px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+}
+
+.tagPillArrow {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #0f172a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   CARD 2: INTEGRATED TRACK (RADIAL NETWORK DIAGRAM)
+   ========================================================================== */
+.radialNetworkArea {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 20px;
+  margin-top: 16px;
+  background: radial-gradient(circle at 50% 30%, rgba(5, 132, 198, 0.08) 0%, rgba(248, 250, 252, 0.8) 70%, #f8fafc 100%);
+  border: 1px dashed rgba(5, 132, 198, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 10px 12px;
+  overflow: hidden;
+}
+
+.radialNetworkArea::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 1px dashed rgba(5, 132, 198, 0.15);
+  pointer-events: none;
+}
+
+.rootAvatarNode {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2.5px solid #0584C6;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(5, 132, 198, 0.35);
+  z-index: 3;
+  background: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.cardTeamwork:hover .rootAvatarNode {
+  transform: scale(1.08);
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.radialBranches {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  width: 100%;
+  z-index: 2;
+}
+
+.branchLine1,
+.branchLine2,
+.branchLine3 {
+  position: absolute;
+  background: linear-gradient(180deg, #0584c6 0%, rgba(5, 132, 198, 0.2) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.branchLine1 {
+  top: -46px;
+  left: calc(16.6% + 4px);
+  width: 1px;
+  height: 48px;
+  transform-origin: top left;
+  transform: rotate(-32deg);
+}
+
+.branchLine2 {
+  top: -46px;
+  left: 50%;
+  width: 1px;
+  height: 44px;
+}
+
+.branchLine3 {
+  top: -46px;
+  right: calc(16.6% + 4px);
+  width: 1px;
+  height: 48px;
+  transform-origin: top right;
+  transform: rotate(32deg);
+}
+
+.leafAvatar1,
+.leafAvatar2,
+.leafAvatar3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+  position: relative;
+  z-index: 2;
+}
+
+.miniAvatarImg {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  object-fit: cover;
+  display: block;
+  background: #e2e8f0;
+  transition: transform 0.25s ease;
+}
+
+.cardTeamwork:hover .miniAvatarImg {
+  transform: translateY(-2px);
+}
+
+.leafNamePill {
+  font-size: 10px;
+  font-weight: 700;
+  color: #0f172a;
+  background: #ffffff;
+  padding: 3px 8px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(16, 24, 40, 0.06);
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   ROW 2: MERGED WIDE GRADIENT CARD (1ST BENTO BLUE -> 2ND BENTO DARK SLATE)
+   ========================================================================== */
+.cardMergedBottom {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 35%, #1e293b 72%, #0f172a 100%);
+  border-radius: 28px;
+  padding: 28px 26px;
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 28px;
+  min-height: 290px;
+  box-shadow: 0 16px 44px rgba(2, 132, 199, 0.22), 0 10px 30px rgba(15, 23, 42, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.cardMergedBottom:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 54px rgba(2, 132, 199, 0.32), 0 14px 40px rgba(15, 23, 42, 0.45);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.cardMergedBottom::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.mergedLeftCol,
+.mergedRightCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.2s ease;
+}
+
+.mergedLeftCol:hover {
+  transform: translateY(-2px);
+}
+
+.mergedRightCol:hover {
+  transform: translateY(-2px);
+}
+
+.mergedDivider {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.28) 50%, rgba(255, 255, 255, 0.08) 100%);
+}
+
+/* Left Sub-Card Elements (Emerging Health-Tech) */
+.securityHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.securityBrandTag {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+}
+
+.securityWaveIcon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c0f050;
+  box-shadow: 0 0 0 0 rgba(192, 240, 80, 0.7);
+  animation: pulseGlow 2s infinite cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(192, 240, 80, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(192, 240, 80, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(192, 240, 80, 0);
+  }
+}
+
+.securityBody {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.securityBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 4px 12px;
+  border-radius: var(--radius-md);
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+  width: fit-content;
+  margin-bottom: 2px;
+}
+
+.verifiedShield {
+  font-size: 12px;
+}
+
+.securityTitle {
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.securitySub {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.5;
+}
+
+/* Right Sub-Card Elements (Healthcare Operations) */
+.darkCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.darkTag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #cbd5e1;
+  text-transform: uppercase;
+}
+
+.darkTagDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.7);
+}
+
+.arrowCircle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.mergedRightCol:hover .arrowCircle {
+  background: #ffffff;
+  color: #0f172a;
+  transform: translateX(3px);
+}
+
+.darkCardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.darkCardTitle {
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.darkCardSub {
+  font-size: 12.5px;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+.darkMiniBadgeRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.darkPill {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #e2e8f0;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: var(--radius-md);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mergedRightCol:hover .darkPill {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: MEDICAL CODING & OPS (TALL DISCOVER APP CARD)
+   ========================================================================== */
+.cardDiscoverApp {
+  background: #ffffff;
+  border-radius: 28px;
+  border: 1px solid rgba(16, 24, 40, 0.08);
+  box-shadow: 0 14px 44px rgba(16, 24, 40, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+  min-height: 694px;
+  width: 100%;
+}
+
+.appBar {
+  padding: 18px 22px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+}
+
+.appBrandWrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.appBrandIcon {
+  font-size: 13px;
+  color: #10b981;
+}
+
+.appBrandText {
+  font-size: 12px;
+  font-weight: 700;
+  color: #475467;
+  font-family: monospace;
+}
+
+.appMenuDots {
+  display: flex;
+  gap: 4px;
+}
+
+.appMenuDots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #cbd5e1;
+}
+
+.appCenterContent {
+  padding: 32px 26px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reboundBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #475467;
+  background: #f1f5f9;
+  padding: 4px 12px;
+  border-radius: var(--radius-md);
+  margin-bottom: 14px;
+}
+
+.cBadge {
+  font-size: 9px;
+  opacity: 0.7;
+}
+
+.appTitle {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.25;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.appSubtext {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.55;
+  max-width: 290px;
+  margin-bottom: 22px;
+}
+
+.searchBar {
+  width: 100%;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 8px 8px 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #94a3b8;
+  font-size: 12.5px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.searchBar:hover {
+  border-color: #0584c6;
+  box-shadow: 0 6px 20px rgba(5, 132, 198, 0.12);
+}
+
+.searchPlaceholder {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.searchIconBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #0584C6;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.landscapeVisualArea {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffffff 0%, #e0f2fe 30%, #7dd3fc 60%, #0284c7 100%);
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 18px 20px;
+}
+
+.oceanSunGlow {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(192, 240, 80, 0.5) 0%, rgba(56, 189, 248, 0.35) 45%, transparent 70%);
+  filter: blur(22px);
+  animation: sunPulse 5s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes sunPulse {
+  0% {
+    transform: translateX(-50%) scale(0.85);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(-50%) scale(1.2);
+    opacity: 1;
+  }
+}
+
+.oceanWavesSvg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  min-height: 120px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.waveGroup > use {
+  animation: oceanWaveFlow 10s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.waveLayerBack {
+  animation-delay: -2s !important;
+  animation-duration: 8s !important;
+}
+
+.waveLayerMid {
+  animation-delay: -4s !important;
+  animation-duration: 11s !important;
+}
+
+.waveLayerFront {
+  animation-delay: -6s !important;
+  animation-duration: 14s !important;
+}
+
+@keyframes oceanWaveFlow {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  50% {
+    transform: translate3d(0px, -5px, 0);
+  }
+  100% {
+    transform: translate3d(90px, 0, 0);
+  }
+}
+
+.cardDiscoverApp:hover .waveGroup > use {
+  animation-duration: 6s !important;
+}
+
+.oceanRipples {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 130%, rgba(192, 240, 80, 0.35) 0%, transparent 60%),
+    repeating-radial-gradient(circle at 50% 140%, rgba(255, 255, 255, 0.2) 0, rgba(255, 255, 255, 0.2) 6px, transparent 6px, transparent 16px);
+  animation: rippleBreathe 3.5s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes rippleBreathe {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.65;
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+.partnerLogosFooter {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 12px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 1080px) {
+  .bentoContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .cardDiscoverApp {
+    min-height: 540px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardMergedBottom {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px 20px;
+  }
+
+  .mergedDivider {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .topRow {
+    grid-template-columns: 1fr;
+  }
+
+  .cardPathways,
+  .cardTeamwork {
+    min-height: auto;
+  }
+
+  .radialNetworkArea,
+  .pathwayPhotoWrapper {
+    height: 180px;
+  }
+
+  .partnerLogosFooter {
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+  }
+}

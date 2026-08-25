@@ -1,0 +1,137 @@
+.filterWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  align-items: center;
+}
+
+/* PRIMARY CATEGORY PILLS (CENTERED LIKE REFERENCE IMAGE) */
+.pillContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 980px;
+}
+
+.filterPill {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 6px rgba(16, 24, 40, 0.02);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.filterPill:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+  color: #0f172a;
+  transform: translateY(-1px);
+}
+
+.activePill {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  border-color: #0f172a !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.25) !important;
+}
+
+/* SUB-BAR */
+.subFilterBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 18px;
+  background: #f8fafc;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.domainGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.domainLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  margin-right: 4px;
+}
+
+.domainBtn {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.domainBtn:hover {
+  border-color: #0584c6;
+  color: #0584c6;
+}
+
+.activeDomainBtn {
+  background: #0584c6 !important;
+  color: #ffffff !important;
+  border-color: #0584c6 !important;
+}
+
+.metaRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.countText {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.resetButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  padding: 4px 10px;
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.resetButton:hover {
+  color: #ef4444;
+  border-color: #fca5a5;
+  background: #fef2f2;
+}
+
+@media (max-width: 768px) {
+  .subFilterBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

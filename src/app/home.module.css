@@ -1,0 +1,1236 @@
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   SKY-BLUE HERO SECTION (MATCHING SCREENSHOT)
+   ========================================================================== */
+.heroSection {
+  padding: 16px 16px 40px;
+  background: var(--color-background);
+}
+
+.heroCanvas {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  background: linear-gradient(
+    180deg,
+    rgb(79, 143, 198) 0%,
+    rgb(92, 157, 204) 30%,
+    rgb(105, 169, 211) 55%,
+    rgb(124, 184, 221) 80%,
+    rgb(134, 198, 235) 100%
+  );
+  border-radius: 36px;
+  padding: 40px 24px 0;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(79, 143, 198, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Ambient Background Video */
+.heroBgVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.heroVideoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(79, 143, 198, 0.4) 0%,
+    rgba(92, 157, 204, 0.3) 40%,
+    rgba(124, 184, 221, 0.45) 80%,
+    rgba(134, 198, 235, 0.65) 100%
+  );
+  backdrop-filter: blur(0.5px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Cloud Atmospheric Layers */
+.cloudLayer1 {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  right: 0;
+  height: 220px;
+  background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 100%);
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cloudLayer2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.4) 60%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cloudLayer3 {
+  position: absolute;
+  top: 20%;
+  left: -100px;
+  width: 400px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Frosted Star Badge */
+.badgeWrapper {
+  margin-bottom: 24px;
+}
+
+.frostedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.starIcon {
+  color: #ffffff;
+}
+
+/* Editorial Title with Italic Serif Accent */
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4.4vw, 62px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  max-width: 1100px;
+  text-shadow: 0 2px 20px rgba(16, 24, 40, 0.08);
+  white-space: normal;
+}
+
+@media (min-width: 1024px) {
+  .heroTitle {
+    white-space: nowrap;
+  }
+}
+
+.italicHighlight {
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.heroSubtitle {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 820px;
+  margin-bottom: 36px;
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+.desktopBr {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .desktopBr {
+    display: inline;
+  }
+}
+
+/* Dual Pill Action Buttons */
+.heroActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 60px;
+}
+
+.darkCtaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #101828;
+  color: #ffffff;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 30px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.25);
+  transition: all var(--transition-normal);
+}
+
+.darkCtaButton:hover {
+  background: #1e293b;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(16, 24, 40, 0.35);
+}
+
+.whiteCtaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #101828;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 30px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
+  transition: all var(--transition-normal);
+}
+
+.whiteCtaButton:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(16, 24, 40, 0.14);
+}
+
+/* ==========================================================================
+   3 FLOATING HERO CARDS (BOTTOM OF HERO)
+   ========================================================================== */
+.floatingCardsContainer {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 980px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0;
+  margin-top: 10px;
+  padding-bottom: 0;
+}
+
+.floatingCard {
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(16, 24, 40, 0.12), 0 4px 16px rgba(16, 24, 40, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: transform var(--transition-normal);
+}
+
+/* Left Angled Card */
+.cardLeft {
+  width: 280px;
+  height: 250px;
+  padding: 24px 20px 0;
+  margin-right: -40px;
+  margin-bottom: 10px;
+  transform: rotate(-6deg);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardLeft:hover {
+  transform: rotate(-3deg) translateY(-8px);
+}
+
+/* Center Main Front Card */
+.cardCenter {
+  width: 380px;
+  height: 290px;
+  padding: 28px 28px 0;
+  z-index: 5;
+  box-shadow: 0 32px 80px rgba(16, 24, 40, 0.16);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardCenter:hover {
+  transform: translateY(-8px);
+}
+
+/* Right Angled Card */
+.cardRight {
+  width: 280px;
+  height: 250px;
+  padding: 24px 20px 0;
+  margin-left: -40px;
+  margin-bottom: 10px;
+  transform: rotate(6deg);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardRight:hover {
+  transform: rotate(3deg) translateY(-8px);
+}
+
+/* Card Header Components */
+.cardHeaderSmall {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.cardTitleSmall {
+  font-size: 15px;
+  font-weight: 700;
+  color: #101828;
+}
+
+.monthlySmall {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #667085;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #f2f4f7;
+  padding: 3px 8px;
+  border-radius: var(--radius-md);
+}
+
+.metricRow {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.metricValueLarge {
+  font-size: 34px;
+  font-weight: 800;
+  color: #101828;
+  line-height: 1;
+}
+
+.growthBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #027a48;
+  background: #ecfdf3;
+  padding: 2px 7px;
+  border-radius: var(--radius-md);
+}
+
+/* Bar Chart Visual */
+.barChartVisual {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 100px;
+  gap: 8px;
+  padding-bottom: 8px;
+  margin-top: auto;
+}
+
+.chartBar {
+  flex: 1;
+  background: linear-gradient(180deg, #b2ddff 0%, #e0f2fe 100%);
+  border-radius: 8px 8px 4px 4px;
+}
+
+/* Center Card Gauge Arc */
+.cardHeaderMain {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.cardTitleMain {
+  font-size: 18px;
+  font-weight: 800;
+  color: #101828;
+}
+
+.dropdownPill {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #475467;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f2f4f7;
+  padding: 5px 12px;
+  border-radius: var(--radius-md);
+}
+
+.gaugeContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 190px;
+  overflow: hidden;
+}
+
+.gaugeArc {
+  position: relative;
+  width: 160px;
+  height: 90px;
+  margin-top: 10px;
+}
+
+.gaugeTick {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 10px;
+  height: 24px;
+  border-radius: 6px;
+  transform-origin: bottom center;
+}
+
+.tickActive {
+  background: #0052ff;
+  box-shadow: 0 0 10px rgba(0, 82, 255, 0.4);
+}
+
+.tickInactive {
+  background: #e0e7ff;
+}
+
+.gaugeCenterText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.gaugePercentage {
+  font-size: 40px;
+  font-weight: 800;
+  color: #101828;
+  line-height: 1;
+  font-family: var(--font-ui);
+}
+
+.gaugeLabel {
+  font-size: 12px;
+  color: #667085;
+  margin-top: 4px;
+}
+
+/* Dots Chart Visual */
+.dotsChartVisual {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 100px;
+  gap: 10px;
+  margin-top: auto;
+  padding-bottom: 8px;
+}
+
+.dotBubble {
+  flex: 1;
+  background: linear-gradient(180deg, #d1e9ff 0%, #eff8ff 100%);
+  border-radius: 12px;
+}
+
+/* ==========================================================================
+   PROGRAMMES DIRECTORY SECTION (LIST FORMAT MATCHING REFERENCE)
+   ========================================================================== */
+.programmesSection {
+  background: var(--color-background);
+  padding-top: 80px;
+}
+
+.directoryCard {
+  background: #ffffff;
+  border-radius: 28px;
+  border: 1px solid rgba(16, 24, 40, 0.08);
+  box-shadow: 0 20px 60px rgba(16, 24, 40, 0.06), 0 2px 8px rgba(16, 24, 40, 0.03);
+  overflow: hidden;
+  margin-top: 36px;
+}
+
+.directoryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.15fr;
+  gap: 32px;
+  padding: 36px 32px 32px;
+}
+
+.directoryColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.columnEyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.directoryList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.directoryItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.directoryItem:hover {
+  background: #f8fafc;
+  transform: translateX(4px);
+}
+
+.itemIconWrap {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: all var(--transition-fast);
+}
+
+.directoryItem:hover .itemIconWrap {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.itemText {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.itemTitle {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+.itemDesc {
+  font-size: 12.5px;
+  color: #64748b;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* EXPLORE / FEATURED TRACKS PANEL */
+.explorePanel {
+  background: #f1f5f9;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.exploreEyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #475467;
+  text-transform: uppercase;
+}
+
+.featuredMiniCard {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
+  text-decoration: none;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all var(--transition-fast);
+}
+
+.featuredMiniCard:hover {
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+}
+
+.miniCardVisual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.badgeStep {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepActive {
+  background: #0052ff;
+  color: #ffffff;
+  border-color: #0052ff;
+  box-shadow: 0 2px 8px rgba(0, 82, 255, 0.35);
+}
+
+.stepConnector {
+  width: 20px;
+  height: 2px;
+  background: #cbd5e1;
+}
+
+.miniCardVisual2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eff6ff;
+  padding: 14px;
+  border-radius: 10px;
+  color: #2563eb;
+}
+
+.miniCardTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.miniCardDesc {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.45;
+}
+
+.seeAllLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  text-decoration: none;
+  margin-top: auto;
+  padding-top: 4px;
+  transition: color var(--transition-fast);
+}
+
+.seeAllLink:hover {
+  color: var(--color-primary);
+}
+
+/* DIRECTORY FOOTER BAR */
+.directoryFooter {
+  border-top: 1px solid #e2e8f0;
+  padding: 16px 32px;
+  background: #fafcff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footerIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e0f2fe;
+  color: #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.footerText {
+  font-size: 13.5px;
+  color: #475467;
+}
+
+.footerCta {
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.footerCta:hover {
+  background: #1e293b;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 1080px) {
+  .directoryGrid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 24px;
+  }
+
+  .directoryFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 20px;
+  }
+}
+
+/* ==========================================================================
+   ABOUT BENTO SECTION (MATCHING REFERENCE DESIGN)
+   ========================================================================== */
+.aboutSection {
+  background: var(--color-background);
+  padding: 96px 0;
+}
+
+.aboutHeaderArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.aboutEyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #64748b;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.eyebrowDot {
+  color: #0f172a;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.aboutMainHeadline {
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #0f172a;
+  max-width: 920px;
+  letter-spacing: -0.02em;
+}
+
+.headlineMuted {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.inlineIconBlue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #38bdf8;
+  color: #ffffff;
+  vertical-align: middle;
+  margin: 0 4px;
+  box-shadow: 0 2px 8px rgba(56, 189, 248, 0.4);
+}
+
+.inlineIconLime {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #c0f050;
+  color: #0f172a;
+  vertical-align: middle;
+  margin: 0 4px;
+  box-shadow: 0 2px 8px rgba(192, 240, 80, 0.4);
+}
+
+/* BENTO GRID */
+.aboutBentoGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 1.25fr 1fr;
+  gap: 24px;
+}
+
+/* Card 1: Blue Card with White Overlay */
+.bentoCardBlue {
+  background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 340px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(2, 132, 199, 0.18);
+}
+
+.blueCardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blueCardBrand {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+}
+
+.blueCardIconWrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blueCardOverlay {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-top: auto;
+}
+
+.overlayMetric {
+  font-size: 40px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--font-ui);
+}
+
+.overlayText {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* Card 2: Light Gray Middle Card */
+.bentoCardLight {
+  background: #f8fafc;
+  border-radius: 24px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e2e8f0;
+  min-height: 340px;
+}
+
+.lightCardHeader {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #475467;
+  margin-bottom: 8px;
+}
+
+.lightCardMetric {
+  font-size: 44px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1;
+  margin-bottom: 24px;
+  font-family: var(--font-ui);
+}
+
+.avatarsRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.avatarCircle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  margin-right: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.lightCardQuote {
+  font-size: 13px;
+  color: #475467;
+  line-height: 1.6;
+  margin-top: auto;
+  font-style: italic;
+}
+
+/* Column 3: Stacked Cards */
+.bentoColRight {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  justify-content: space-between;
+}
+
+.bentoCardLime {
+  background: #c0f050;
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  box-shadow: 0 8px 24px rgba(192, 240, 80, 0.25);
+}
+
+.limeCardHeader {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+
+.limeCardMetric {
+  font-size: 44px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1;
+  margin-bottom: 12px;
+  font-family: var(--font-ui);
+}
+
+.limeCardDesc {
+  font-size: 12.5px;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.bentoCardDark {
+  background: #0f172a;
+  border-radius: 20px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.25);
+}
+
+.darkCardLabel {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.darkCardMetric {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  font-family: var(--font-ui);
+}
+
+@media (max-width: 1024px) {
+  .aboutBentoGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .aboutMainHeadline {
+    font-size: 34px;
+  }
+}
+
+/* ==========================================================================
+  PROGRAMMES OVERVIEW SECTION (ADJUSTED BOTTOM PADDING)
+   ========================================================================== */
+.programmesSection {
+  padding-bottom: 48px;
+}
+
+/* ==========================================================================
+  ACTIVITY RIBBON (BETWEEN PROGRAMMES & CAREER PATHWAYS)
+   ========================================================================== */
+.activityRibbonSection {
+  background: #f8fafc;
+  padding: 20px 0;
+  border-top: 1px solid rgba(16, 24, 40, 0.06);
+  border-bottom: 1px solid rgba(16, 24, 40, 0.06);
+}
+
+.activityRibbonText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  text-align: center;
+  font-size: 17.5px;
+  font-weight: 500;
+  color: #0f172a;
+  line-height: 1.6;
+}
+
+.tiltedBadgeOne {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  color: #0584c6;
+  border: 1.5px solid #b9e6fe;
+  font-size: 17.5px;
+  font-weight: 800;
+  padding: 5px 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(5, 132, 198, 0.12);
+  transform: rotate(-2deg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tiltedBadgeOne:hover {
+  transform: rotate(0deg) scale(1.04);
+  box-shadow: 0 6px 20px rgba(5, 132, 198, 0.2);
+}
+
+.tiltedBadgeTwo {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  color: #0584c6;
+  border: 1.5px solid #b9e6fe;
+  font-size: 17.5px;
+  font-weight: 800;
+  padding: 5px 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(5, 132, 198, 0.12);
+  transform: rotate(2deg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tiltedBadgeTwo:hover {
+  transform: rotate(0deg) scale(1.04);
+  box-shadow: 0 6px 20px rgba(5, 132, 198, 0.2);
+}
+
+.activityBrandName {
+  font-weight: 800;
+  color: #0f172a;
+}
+
+@media (max-width: 640px) {
+  .activityRibbonText {
+    font-size: 15px;
+    gap: 8px;
+  }
+
+  .tiltedBadgeOne,
+  .tiltedBadgeTwo {
+    font-size: 14.5px;
+    padding: 4px 12px;
+  }
+}
+
+/* ==========================================================================
+   CAREER PATHWAYS SECTION
+   ========================================================================== */
+.pathwaysSection {
+  background: var(--color-background);
+  padding-top: 48px;
+  padding-bottom: 96px;
+}
+
+/* ==========================================================================
+   WHY SECTION
+   ========================================================================== */
+.whySection {
+  background: #f1f3f7;
+  padding: 96px 0;
+}
+
+/* ==========================================================================
+   FAQ SECTION
+   ========================================================================== */
+.faqSection {
+  background: var(--color-background);
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .pathwayCardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 960px) {
+  .heroTitle {
+    font-size: 52px;
+  }
+
+  .floatingCardsContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .cardLeft,
+  .cardRight {
+    transform: none;
+    margin: 0;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+  }
+
+  .cardCenter {
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .aboutGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .cardsGrid,
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .groupHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroCanvas {
+    border-radius: 24px;
+    padding: 48px 16px 0;
+  }
+
+  .heroTitle {
+    font-size: 38px;
+  }
+
+  .heroSubtitle {
+    font-size: 15px;
+  }
+
+  .heroActions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .heroActions a {
+    width: 100%;
+  }
+
+  .metricsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .pathwayCardsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.faqSection {
+  scroll-margin-top: 100px;
+}

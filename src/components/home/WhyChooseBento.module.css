@@ -1,0 +1,821 @@
+.bentoWrapper {
+  max-width: 1040px;
+  margin: 48px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
+
+/* ==========================================================================
+   ROW 1: MESSAGE COMPOSER & TODAY'S SCHEDULE
+   ========================================================================== */
+.rowTop {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 22px;
+  width: 100%;
+}
+
+/* WIDGET 1: MESSAGE COMPOSER */
+.widgetMessage {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 24px 26px;
+  border: 1px solid rgba(16, 24, 40, 0.07);
+  box-shadow: 0 8px 26px rgba(16, 24, 40, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.messageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.authorGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.authorAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.authorMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.authorNameRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.authorName {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.authorTime {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.authorRole {
+  font-size: 11.5px;
+  color: #64748b;
+}
+
+.messageHeaderIcons {
+  display: flex;
+  gap: 6px;
+}
+
+.iconBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.iconBtn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.messageBodyText {
+  font-size: 13.5px;
+  color: #334155;
+  line-height: 1.6;
+}
+
+.messageComposerFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 6px 8px 6px 16px;
+}
+
+.inputPill {
+  font-size: 12.5px;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.reactionsGroup {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #ffffff;
+  padding: 3px 6px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.emojiReaction {
+  font-size: 13px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  user-select: none;
+}
+
+.emojiReaction:hover {
+  transform: scale(1.25);
+}
+
+.addEmojiBtn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* WIDGET 2: SCHEDULE */
+.widgetSchedule {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 24px 22px;
+  border: 1px solid rgba(16, 24, 40, 0.07);
+  box-shadow: 0 8px 26px rgba(16, 24, 40, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.scheduleHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.scheduleTitle {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.scheduleDate {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.scheduleToggleRow {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: var(--radius-md);
+  padding: 3px;
+  gap: 2px;
+  width: 100%;
+}
+
+.toggleActive {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  background: #ffffff;
+  color: #0f172a;
+  padding: 5px 0;
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.toggleInactive {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  padding: 5px 0;
+}
+
+.timelineList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.timelineItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.timelineItemTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.timelineItemTime {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   ROW 2: 2X2 FACULTY, WELCOME PROGRESS & NEXT COHORT DATE
+   ========================================================================== */
+.rowMiddle {
+  display: grid;
+  grid-template-columns: 0.95fr 1.8fr 0.95fr;
+  gap: 22px;
+  width: 100%;
+}
+
+/* WIDGET 3: 2X2 FACULTY CLUSTER */
+.widgetFacultyCluster {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 24px 20px;
+  border: 1px solid rgba(16, 24, 40, 0.07);
+  box-shadow: 0 8px 26px rgba(16, 24, 40, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 14px;
+}
+
+.avatars2x2 {
+  display: grid;
+  grid-template-columns: repeat(2, 42px);
+  gap: 6px;
+}
+
+.clusterImg {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.clusterMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.clusterTitle {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.clusterSubtitle {
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* WIDGET 4: WELCOME PROGRESS */
+.widgetWelcome {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 24px 26px;
+  border: 1px solid rgba(16, 24, 40, 0.07);
+  box-shadow: 0 8px 26px rgba(16, 24, 40, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.welcomeTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.welcomeUser {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.welcomeGreeting {
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.welcomeUserName {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.welcomeAvatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.welcomeSubBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #94a3b8;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 8px;
+}
+
+.subBarAction {
+  color: #0284c7;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.projectNotificationBubble {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bubbleIconWrap {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #0f172a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bubbleText {
+  font-size: 12px;
+  color: #475467;
+  line-height: 1.45;
+}
+
+/* WIDGET 5: CALENDAR DATE */
+.widgetCalendarDate {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 24px 20px;
+  border: 1px solid rgba(16, 24, 40, 0.07);
+  box-shadow: 0 8px 26px rgba(16, 24, 40, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.calendarDay {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.calendarBigDate {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.1;
+  margin: 6px 0;
+}
+
+.calendarFooter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8fafc;
+  padding: 6px 10px;
+  border-radius: var(--radius-md);
+}
+
+.calendarSmallAvatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.calendarFooterText {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ==========================================================================
+   ROW 3: FACULTY LIST & CAMPUS/PLACEMENT HUB
+   ========================================================================== */
+.rowBottom {
+  display: grid;
+  grid-template-columns: 1.25fr 1.75fr;
+  gap: 22px;
+  width: 100%;
+}
+
+/* WIDGET 6: FACULTY DIRECTORY LIST (TALL LEFT) */
+.widgetMentorsList {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 26px 24px;
+  border: 1px solid rgba(16, 24, 40, 0.07);
+  box-shadow: 0 8px 26px rgba(16, 24, 40, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.mentorsListHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mentorsHeading {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.addFriendsBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.mentorsSubCount {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #94a3b8;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 8px;
+}
+
+.mentorsStack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mentorRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.mentorAvatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.mentorInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.mentorName {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.mentorRole {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.mentorActionBtn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mentorActionBtn:hover {
+  background: #0584c6;
+  color: #ffffff;
+  border-color: #0584c6;
+}
+
+.sendRequestPill {
+  background: #0f172a;
+  color: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 8px 12px 8px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.18);
+  transition: transform 0.2s ease;
+}
+
+.sendRequestPill:hover {
+  transform: translateY(-1px);
+}
+
+.pillAvatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* BOTTOM RIGHT CLUSTER */
+.bottomRightCluster {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* WIDGET 7: YUKTHI CAMPUS & PLACEMENT NETWORK */
+.widgetCampus {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 24px 26px;
+  border: 1px solid rgba(16, 24, 40, 0.07);
+  box-shadow: 0 8px 26px rgba(16, 24, 40, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.campusTopBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 10px 16px;
+  border-radius: 16px;
+}
+
+.campusLocation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.campusIcon {
+  font-size: 14px;
+}
+
+.campusName {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.activeStatusPill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #059669;
+}
+
+.greenPulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.placementPartnersArea {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.placementLabel {
+  font-size: 12px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.partnerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.partnerUser {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.partnerAvatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.partnerMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.partnerName {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.partnerOrg {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.overlappingPartnerAvatars {
+  display: flex;
+}
+
+.partnerMiniAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  object-fit: cover;
+  margin-left: -10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* MINI WIDGETS ROW */
+.miniWidgetsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+/* MINI WIDGET 8A: SUGGESTION */
+.widgetSuggestion {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 22px 20px;
+  border: 1px solid rgba(16, 24, 40, 0.07);
+  box-shadow: 0 8px 26px rgba(16, 24, 40, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.suggestionTop {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.suggestionAvatarWrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #31b6f2;
+  box-shadow: 0 4px 12px rgba(49, 182, 242, 0.2);
+}
+
+.suggestionAvatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.suggestionName {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.suggestionHandle {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0584c6;
+  text-decoration: none;
+}
+
+.suggestionHandle:hover {
+  text-decoration: underline;
+}
+
+/* MINI WIDGET 8B: ACCREDITATION */
+.widgetAccreditation {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 22px 20px;
+  border: 1px solid rgba(16, 24, 40, 0.07);
+  box-shadow: 0 8px 26px rgba(16, 24, 40, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.dolphinIconWrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #e0f4fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+}
+
+.accreditBrandTitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.accreditSub {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .rowTop,
+  .rowMiddle,
+  .rowBottom {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 580px) {
+  .miniWidgetsRow {
+    grid-template-columns: 1fr;
+  }
+}

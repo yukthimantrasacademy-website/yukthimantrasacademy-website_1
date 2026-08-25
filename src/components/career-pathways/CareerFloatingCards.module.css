@@ -1,0 +1,408 @@
+.floatingContainer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: visible;
+}
+
+.floatingWidget {
+  position: absolute;
+  pointer-events: auto;
+  user-select: none;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+/* 1. TOP-LEFT: YELLOW PINNED NOTE + 3D CHECKBOX */
+.widgetTopLeft {
+  top: 18%;
+  left: 14%;
+}
+
+.yellowNote {
+  background: linear-gradient(135deg, #fef08a 0%, #fde047 100%);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  width: 224px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.09), 0 4px 10px rgba(0, 0, 0, 0.04);
+  position: relative;
+  border: 1px solid rgba(253, 224, 71, 0.6);
+}
+
+.pinWrapper {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.redPin {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #f87171, #dc2626);
+  border: 2px solid #ffffff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+}
+
+.noteText {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: #713f12;
+  font-weight: 600;
+  margin: 0;
+  font-family: var(--font-display);
+}
+
+.checkbox3D {
+  position: absolute;
+  bottom: -16px;
+  right: -10px;
+  width: 52px;
+  height: 52px;
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16px 36px rgba(16, 24, 40, 0.16), inset 0 1px 2px #ffffff;
+  border: 1px solid #f1f5f9;
+  z-index: 4;
+}
+
+.checkInner {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, #0584c6 0%, #0284c7 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(5, 132, 198, 0.35);
+}
+
+.checkIconBlue {
+  color: #ffffff;
+}
+
+/* 2. TOP-RIGHT: REMINDERS + 3D STOPWATCH */
+.widgetTopRight {
+  top: 25%;
+  right: 15%;
+}
+
+.remindersCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  width: 210px;
+  box-shadow: 0 20px 42px rgba(16, 24, 40, 0.09);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.reminderHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reminderHeading {
+  font-size: 12px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.livePulseDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+}
+
+.reminderBody {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.reminderTitle {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.reminderSubtitle {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.reminderTimePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f0f9ff;
+  color: #0584c6;
+  padding: 4px 10px;
+  border-radius: var(--radius-md);
+  font-size: 11px;
+  font-weight: 700;
+  width: fit-content;
+  margin-top: 4px;
+  border: 1px solid rgba(5, 132, 198, 0.15);
+}
+
+.stopwatch3D {
+  position: absolute;
+  top: -26px;
+  left: -26px;
+  width: 50px;
+  height: 50px;
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16px 36px rgba(16, 24, 40, 0.16), inset 0 1px 2px #ffffff;
+  border: 1px solid #f1f5f9;
+  z-index: 4;
+}
+
+.stopwatchIcon {
+  color: #0f172a;
+}
+
+/* 3. BOTTOM-LEFT: TODAY'S TASKS */
+.widgetBottomLeft {
+  bottom: 8%;
+  left: 8%;
+}
+
+.tasksCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  width: 240px;
+  box-shadow: 0 20px 42px rgba(16, 24, 40, 0.09);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tasksHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tasksTitle {
+  font-size: 12px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.loadingBadge {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #0284c7;
+  background: #f0f9ff;
+  padding: 2px 6px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.spinDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #0284c7;
+  animation: pulseDot 1.5s infinite;
+}
+
+.taskItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.taskMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.taskNameRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.taskDotOrange {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ea580c;
+}
+
+.taskDotGreen {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #16a34a;
+}
+
+.taskName {
+  font-size: 11px;
+  font-weight: 700;
+  color: #334155;
+  max-width: 145px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.taskPercent {
+  font-size: 11px;
+  font-weight: 800;
+  color: #0f172a;
+  font-family: monospace;
+}
+
+.progressBarBg {
+  width: 100%;
+  height: 6px;
+  background: #f1f5f9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+}
+
+.progressBarFillCyan {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8 0%, #0284c7 100%);
+  border-radius: var(--radius-md);
+  transition: width 0.1s linear;
+}
+
+.progressBarFillGreen {
+  height: 100%;
+  background: linear-gradient(90deg, #4ade80 0%, #16a34a 100%);
+  border-radius: var(--radius-md);
+  transition: width 0.1s linear;
+}
+
+/* 4. BOTTOM-RIGHT: 100+ INTEGRATIONS */
+.widgetBottomRight {
+  bottom: 14%;
+  right: 11%;
+}
+
+.integrationsCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  width: 216px;
+  box-shadow: 0 20px 42px rgba(16, 24, 40, 0.09);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.integrationsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.integrationsHeading {
+  font-size: 12px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.integrationIconsRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toolIconSquare {
+  width: 44px;
+  height: 44px;
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 13px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.toolIconSquare:hover {
+  transform: translateY(-2px);
+  border-color: #0584c6;
+}
+
+.toolTextPython {
+  color: #d97706;
+}
+
+.toolTextSql {
+  color: #0584c6;
+}
+
+.toolTextEhr {
+  color: #16a34a;
+}
+
+/* RESPONSIVE BEHAVIOR */
+@media (max-width: 1200px) {
+  .widgetTopLeft {
+    left: 4%;
+    top: 15%;
+  }
+  .widgetTopRight {
+    right: 4%;
+    top: 12%;
+  }
+  .widgetBottomLeft {
+    left: 3%;
+    bottom: 4%;
+  }
+  .widgetBottomRight {
+    right: 3%;
+    bottom: 8%;
+  }
+}
+
+@media (max-width: 900px) {
+  .floatingContainer {
+    display: none;
+  }
+}

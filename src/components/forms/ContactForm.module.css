@@ -1,0 +1,138 @@
+.formCard {
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  padding: 40px;
+  box-shadow: var(--shadow-sm);
+}
+
+.formTitle {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+
+.formSubtitle {
+  font-size: 14.5px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.alertBanner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+.alertSuccess {
+  background: #ecfdf5;
+  border: 1px solid #6ee7b7;
+  color: #065f46;
+}
+
+.alertError {
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: #991b1b;
+}
+
+.alertIcon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.req {
+  color: #dc2626;
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: #fafcff;
+  color: var(--color-text-primary);
+  font-size: 14.5px;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.input,
+.select {
+  height: 48px;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: var(--color-primary);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(22, 118, 176, 0.15);
+}
+
+.inputError {
+  border-color: #ef4444 !important;
+  background: #fff8f8 !important;
+}
+
+.errorText {
+  font-size: 12px;
+  color: #dc2626;
+  font-weight: 500;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 680px) {
+  .formCard {
+    padding: 24px 16px;
+  }
+
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+}

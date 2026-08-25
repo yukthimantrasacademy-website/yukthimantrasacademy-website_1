@@ -1,0 +1,318 @@
+.footer {
+  background: #ffffff;
+  padding: 72px 0 36px;
+  border-top: 1px solid rgba(16, 24, 40, 0.08);
+  overflow: hidden;
+  width: 100%;
+}
+
+/* TOP ROW */
+.topRow {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr 1fr 1.2fr;
+  gap: 36px;
+  align-items: start;
+}
+
+/* COL 1: STATEMENT (EXACTLY 2 LINES) */
+.statementCol {
+  display: flex;
+  flex-direction: column;
+  max-width: 540px;
+}
+
+.statementText {
+  font-size: clamp(16px, 1.25vw, 19.5px);
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  font-family: var(--font-display);
+}
+
+.lineOne {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.lineTwo {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.statementBr {
+  display: block;
+}
+
+/* COL 2: EXPLORE NAV */
+.navCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.colHeading {
+  font-size: 13px;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.linksList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linksList a {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #334155;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.linksList a:hover {
+  color: #0584c6;
+}
+
+/* COL 3: SOCIAL PILLS (CONSISTENT APP ICONS) */
+.socialCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.socialPills {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.socialPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 7px 14px;
+  border-radius: var(--radius-md);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #334155;
+  text-decoration: none;
+  width: fit-content;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.socialPill:hover {
+  border-color: #0584c6;
+  background: #f0f9ff;
+  color: #0584c6;
+  transform: translateX(2px);
+}
+
+.socialIcon {
+  color: #475569;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.socialPill:hover .socialIcon {
+  color: #0584c6;
+}
+
+/* COL 4: ACTION CTA CARDS (WEBSITE BRAND COLORS) */
+.actionCol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.actionCardPrimary,
+.actionCardSecondary {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.actionCardPrimary:hover,
+.actionCardSecondary:hover {
+  transform: translateY(-2px);
+}
+
+.actionCardTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actionTitlePrimary {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0584c6;
+}
+
+.actionArrowPrimary {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #0584c6;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.actionCardPrimary:hover .actionArrowPrimary {
+  background: #0369a1;
+  transform: translate(1px, -1px);
+}
+
+.actionTitleSecondary {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.actionArrowSecondary {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #0f172a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.actionCardSecondary:hover .actionArrowSecondary {
+  background: #0584c6;
+  transform: translate(1px, -1px);
+}
+
+.actionSubtext {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* ==========================================================================
+   MASSIVE FULL-WIDTH HERO BRAND SVG WORDMARK (1 LINE GUARANTEED)
+   ========================================================================== */
+.bigHeroWordmarkContainer {
+  width: 100%;
+  overflow: hidden;
+  padding: 32px 24px 8px;
+  margin-top: 40px;
+  user-select: none;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroSvg {
+  width: 100%;
+  max-width: 1520px;
+  height: auto;
+  display: block;
+}
+
+.svgWordmarkText {
+  font-family: var(--font-ui), "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  font-size: 134px;
+  font-weight: 900;
+  fill: #0f172a;
+  letter-spacing: -0.04em;
+}
+
+/* ==========================================================================
+   BOTTOM LEGAL & STATUS BAR
+   ========================================================================== */
+.bottomBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  border-top: 1px solid #f1f5f9;
+  font-size: 12.5px;
+  color: #64748b;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.bottomLeft,
+.bottomRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dot {
+  color: #cbd5e1;
+  font-size: 10px;
+}
+
+.legalLink {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.legalLink:hover {
+  color: #0584c6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .topRow {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .statementCol {
+    max-width: 100%;
+  }
+
+  .statementBr {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 48px 0 28px;
+  }
+
+  .topRow {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .statementText {
+    font-size: 18px;
+  }
+
+  .lineOne,
+  .lineTwo {
+    white-space: normal;
+  }
+
+  .bigHeroWordmarkContainer {
+    padding: 20px 12px 4px;
+    margin-top: 28px;
+  }
+
+  .bottomBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

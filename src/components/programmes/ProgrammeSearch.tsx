@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Search, X } from 'lucide-react';
+import { Search, X } from '@/components/icons/GoogleIcons';
 import styles from './ProgrammeSearch.module.css';
 import { cn } from '@/lib/utils/cn';
 

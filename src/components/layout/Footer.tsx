@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from '@/components/icons/GoogleIcons';
 import { FooterAnimation } from '@/components/shared/FooterAnimation';
 import { FooterWordmark } from './FooterWordmark';
 import styles from './Footer.module.css';

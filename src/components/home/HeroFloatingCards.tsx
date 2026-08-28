@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { ChevronDown, TrendingUp, Sparkles, Check } from 'lucide-react';
+import { ChevronDown, TrendingUp, Sparkles, Check } from '@/components/icons/GoogleIcons';
 import { gsap, ScrollTrigger, EASE, TIMING, prefersReducedMotion, isClient } from '@/animations/gsap';
 import styles from './HeroFloatingCards.module.css';
 import { cn } from '@/lib/utils/cn';

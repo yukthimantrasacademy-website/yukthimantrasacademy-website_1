@@ -24,7 +24,7 @@ import {
   Clock,
   Lightbulb,
   BarChart3,
-} from 'lucide-react';
+} from '@/components/icons/GoogleIcons';
 import { Button } from '@/components/shared/Button';
 import { SectionHeading } from '@/components/shared/SectionHeading';
 import { ProgrammesDirectory } from '@/components/programmes/ProgrammesDirectory';
@@ -113,7 +113,7 @@ export default async function HomePage() {
             {/* Top Star Pill Badge */}
             <div className={styles.badgeWrapper} data-hero="badge">
               <div className={cn(styles.frostedBadge, 'gsap-hero-hidden')}>
-                <Star size={13} className={styles.starIcon} fill="currentColor" />
+                <Star size={13} className={styles.starIcon} fill={true} />
                 <span>INTEGRATED TECHNOLOGY + HEALTHCARE PROGRAMMES</span>
               </div>
             </div>

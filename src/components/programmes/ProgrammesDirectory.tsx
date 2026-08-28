@@ -3,24 +3,24 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import {
-  LineChart,
+  BarChart3,
   Database,
   Brain,
   Sparkles,
-  Code,
+  Code2,
   Cpu,
-  Stethoscope,
+  HeartPulse,
   FileText,
-  FileCheck2,
+  FileCheck,
   Layers,
   Compass,
-  HeartPulse,
   ArrowUpRight,
   ShieldCheck,
-  Star,
-} from 'lucide-react';
+  Award,
+} from '@/components/icons/GoogleIcons';
+import { ProgrammeGraphic } from '@/components/shared/ProgrammeGraphic';
 import type { Programme } from '@/types/programme';
-import { gsap, ScrollTrigger, EASE, TIMING, prefersReducedMotion, isClient } from '@/animations/gsap';
+import { gsap, EASE, TIMING, prefersReducedMotion, isClient } from '@/animations/gsap';
 import styles from './ProgrammesDirectory.module.css';
 import { cn } from '@/lib/utils/cn';
 
@@ -29,35 +29,10 @@ interface ProgrammesDirectoryProps {
   groupBProgrammes: Programme[];
 }
 
-const programmeImages: Record<string, string> = {
-  'healthcare-data-analytics-foundation':
-    'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-  'certified-data-scientist-healthcare':
-    'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
-  'artificial-intelligence-healthcare':
-    'https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=800&q=80',
-  'generative-ai-llm-healthcare':
-    'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80',
-  'python-data-healthcare-automation':
-    'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
-  'machine-learning-mlops-foundation':
-    'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
-  'cpc-preparation-medical-coding':
-    'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
-  'ccs-preparation-clinical-coding':
-    'https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=800&q=80',
-  'medical-billing-revenue-cycle-management':
-    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
-  'healthcare-it-clinical-data-management':
-    'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
-  'medical-coding-data-analytics-integrated':
-    'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80',
-};
-
 function getProgrammeIcon(slug: string) {
   switch (slug) {
     case 'healthcare-data-analytics-foundation':
-      return <LineChart size={18} />;
+      return <BarChart3 size={18} />;
     case 'certified-data-scientist-healthcare':
       return <Database size={18} />;
     case 'artificial-intelligence-healthcare':
@@ -65,15 +40,15 @@ function getProgrammeIcon(slug: string) {
     case 'generative-ai-llm-healthcare':
       return <Sparkles size={18} />;
     case 'python-data-healthcare-automation':
-      return <Code size={18} />;
+      return <Code2 size={18} />;
     case 'machine-learning-mlops-foundation':
       return <Cpu size={18} />;
     case 'cpc-preparation-medical-coding':
-      return <Stethoscope size={18} />;
+      return <ShieldCheck size={18} />;
     case 'ccs-preparation-clinical-coding':
       return <FileText size={18} />;
     case 'medical-billing-revenue-cycle-management':
-      return <FileCheck2 size={18} />;
+      return <FileCheck size={18} />;
     case 'healthcare-it-clinical-data-management':
       return <Layers size={18} />;
     case 'medical-coding-data-analytics-integrated':
@@ -96,10 +71,6 @@ export const ProgrammesDirectory: React.FC<ProgrammesDirectoryProps> = ({
   );
   const containerRef = React.useRef<HTMLDivElement>(null);
   const posterRef = React.useRef<HTMLDivElement>(null);
-
-  const activeImage =
-    programmeImages[activeProgramme.slug] ||
-    'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80';
 
   // Entrance animations on scroll
   React.useEffect(() => {
@@ -230,14 +201,22 @@ export const ProgrammesDirectory: React.FC<ProgrammesDirectoryProps> = ({
           </div>
         </div>
 
-        {/* COLUMN 3: POSTER IMAGE CARD WITH GLASS OVERLAY (MATCHING REFERENCE IMAGE) */}
+        {/* COLUMN 3: POSTER IMAGE CARD WITH GLASS OVERLAY */}
         <div className={styles.posterWrapper}>
           <div
             ref={posterRef}
             className={styles.posterCard}
-            style={{ backgroundImage: `url(${activeImage})` }}
             key={activeProgramme.id}
           >
+            <div className="absolute inset-0 w-full h-full overflow-hidden">
+              <ProgrammeGraphic
+                programmeId={activeProgramme.id}
+                category={activeProgramme.category}
+                title={activeProgramme.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
             {/* Top Bar Floating Pills */}
             <div className={styles.posterTopBar}>
               <div className={styles.topTagsGroup}>
@@ -245,7 +224,7 @@ export const ProgrammesDirectory: React.FC<ProgrammesDirectoryProps> = ({
                 <span className={styles.tagPill}>{activeProgramme.category}</span>
               </div>
               <div className={styles.ratingBadge}>
-                <Star size={12} fill="#ffffff" color="#ffffff" />
+                <Award size={13} fill={true} color="#ffffff" />
                 <span>4.9</span>
               </div>
             </div>

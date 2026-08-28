@@ -5,14 +5,12 @@ import Link from 'next/link';
 import {
   Clock,
   GraduationCap,
-  Laptop,
   CheckCircle,
   ArrowRight,
   ShieldCheck,
   ChevronRight,
   Sparkles,
   Layers,
-  Wrench,
   Award,
   Briefcase,
   Users,
@@ -22,10 +20,10 @@ import {
   Check,
   FileCheck,
   Phone,
-  MessageCircle,
+  MessageSquare,
   AlertCircle,
-  Star,
-} from 'lucide-react';
+  Cpu,
+} from '@/components/icons/GoogleIcons';
 import {
   getProgrammeBySlug,
   getAllProgrammeSlugs,
@@ -37,6 +35,7 @@ import { CTASection } from '@/components/shared/CTASection';
 import { CurriculumAccordion } from '@/components/programmes/CurriculumAccordion';
 import { ProgrammeCard } from '@/components/programmes/ProgrammeCard';
 import { ProgrammeDetailAnimation } from '@/components/programmes/ProgrammeDetailAnimation';
+import { ProgrammeGraphic } from '@/components/shared/ProgrammeGraphic';
 import { buildProgrammeMetadata } from '@/seo/metadata';
 import { JsonLd } from '@/seo/JsonLd';
 import {
@@ -53,20 +52,6 @@ interface PageProps {
     slug: string;
   }>;
 }
-
-const programmeImages: Record<string, string> = {
-  'prog-01': 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80',
-  'prog-02': 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
-  'prog-03': 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80',
-  'prog-04': 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80',
-  'prog-05': 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80',
-  'prog-06': 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1200&q=80',
-  'prog-07': 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80',
-  'prog-08': 'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1200&q=80',
-  'prog-09': 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80',
-  'prog-10': 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80',
-  'prog-11': 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80',
-};
 
 export async function generateStaticParams() {
   const slugs = await getAllProgrammeSlugs();
@@ -95,10 +80,6 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
   }
 
   const relatedProgrammes = await getRelatedProgrammes(programme.slug, 2);
-
-  const featuredImage =
-    programmeImages[programme.id] ||
-    'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80';
 
   // Structured Data Schemas
   const courseSchema = getCourseSchema(programme);
@@ -146,13 +127,14 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
 
               {/* 1. Featured Media Showcase Banner */}
               <div className={styles.mediaShowcaseContainer}>
-                <img
-                  src={featuredImage}
-                  alt={`${programme.title} banner`}
-                  className={styles.showcaseImage}
-                  data-programme-anim="showcase-img"
-                  loading="eager"
-                />
+                <div data-programme-anim="showcase-img" className="w-full h-full min-h-[300px] overflow-hidden">
+                  <ProgrammeGraphic
+                    programmeId={programme.id}
+                    category={programme.category}
+                    title={programme.title}
+                    className="w-full h-full min-h-[300px]"
+                  />
+                </div>
                 <div className={styles.showcaseOverlayGradient} />
 
                 {/* Top Controls Overlay */}
@@ -334,7 +316,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
 
                     <li className={styles.specItem}>
                       <div className={styles.specLeft}>
-                        <Laptop size={15} className={styles.specIcon} />
+                        <Cpu size={15} className={styles.specIcon} />
                         <span>Learning Mode</span>
                       </div>
                       <span className={styles.specVal}>
@@ -496,7 +478,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
                     Our academic counsellors can help evaluate your degree eligibility and suggest the right track.
                   </p>
                   <Link href="/contact" className={styles.helplineBtn}>
-                    <MessageCircle size={14} />
+                    <MessageSquare size={14} />
                     <span>Talk to an Advisor</span>
                   </Link>
                 </div>

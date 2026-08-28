@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Check, ArrowRight, PhoneCall, CheckCircle2 } from 'lucide-react';
+import { Check, ArrowRight, PhoneCall, CheckCircle2 } from '@/components/icons/GoogleIcons';
 import { gsap, ScrollTrigger, EASE, TIMING, prefersReducedMotion, isClient } from '@/animations/gsap';
 import styles from './CTASection.module.css';
 import { cn } from '@/lib/utils/cn';

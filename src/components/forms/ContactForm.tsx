@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Loader2 } from '@/components/icons/GoogleIcons';
 import { submitContactForm } from '@/services/contact';
 import type { ContactFormData } from '@/types/counselling';
 import { Button } from '@/components/shared/Button';

@@ -10,7 +10,7 @@ import {
   ArrowRight,
   ShieldCheck,
   CheckCircle2,
-} from 'lucide-react';
+} from '@/components/icons/GoogleIcons';
 import { SectionHeading } from '@/components/shared/SectionHeading';
 import { CounsellingForm } from '@/components/forms/CounsellingForm';
 import { AdmissionProcessFlow } from '@/components/admission/AdmissionProcessFlow';

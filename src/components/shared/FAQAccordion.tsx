@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown } from '@/components/icons/GoogleIcons';
 import { gsap, isClient, prefersReducedMotion } from '@/animations/gsap';
 import styles from './FAQAccordion.module.css';
 import { cn } from '@/lib/utils/cn';

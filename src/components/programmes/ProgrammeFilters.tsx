@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { RotateCcw } from 'lucide-react';
+import { RotateCcw } from '@/components/icons/GoogleIcons';
 import type { ProgrammeCategory, ProgrammeGroup } from '@/types/programme';
 import styles from './ProgrammeFilters.module.css';
 import { cn } from '@/lib/utils/cn';

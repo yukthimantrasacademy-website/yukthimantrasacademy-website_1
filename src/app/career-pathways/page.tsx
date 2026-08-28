@@ -16,7 +16,7 @@ import {
   Calendar,
   Clock,
   Pin,
-} from 'lucide-react';
+} from '@/components/icons/GoogleIcons';
 import { CareerFloatingCards } from '@/components/career-pathways/CareerFloatingCards';
 import { SectionHeading } from '@/components/shared/SectionHeading';
 import { Button } from '@/components/shared/Button';

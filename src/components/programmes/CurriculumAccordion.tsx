@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronDown, ChevronUp, Play, FileText, CheckCircle, Info } from 'lucide-react';
+import { ChevronDown, ChevronUp, Play, FileText, CheckCircle, Info } from '@/components/icons/GoogleIcons';
 import type { CurriculumModule } from '@/types/programme';
 import { gsap, EASE, TIMING, prefersReducedMotion, isClient } from '@/animations/gsap';
 import styles from './CurriculumAccordion.module.css';

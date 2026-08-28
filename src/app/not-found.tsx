@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Compass } from 'lucide-react';
+import { ArrowLeft, Compass } from '@/components/icons/GoogleIcons';
 import { Button } from '@/components/shared/Button';
 import styles from './not-found.module.css';
 import { cn } from '@/lib/utils/cn';

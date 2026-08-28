@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, ArrowRight } from 'lucide-react';
+import { ShieldCheck, ArrowRight } from '@/components/icons/GoogleIcons';
 import { Button } from '@/components/shared/Button';
 import styles from './EligibilityBanner.module.css';
 import { cn } from '@/lib/utils/cn';

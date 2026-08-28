@@ -12,7 +12,7 @@ import {
   CheckCircle2,
   ArrowRight,
   BookOpen,
-} from 'lucide-react';
+} from '@/components/icons/GoogleIcons';
 import { SectionHeading } from '@/components/shared/SectionHeading';
 import { Button } from '@/components/shared/Button';
 import { CTASection } from '@/components/shared/CTASection';

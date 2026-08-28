@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { BarChart3, ArrowRight, ShieldCheck, Activity, Sparkles } from 'lucide-react';
+import { BarChart3, ArrowRight, ShieldCheck, Activity, Sparkles } from '@/components/icons/GoogleIcons';
 import { gsap, ScrollTrigger, EASE, prefersReducedMotion, isClient } from '@/animations/gsap';
 import styles from './AboutBentoGrid.module.css';
 import { cn } from '@/lib/utils/cn';

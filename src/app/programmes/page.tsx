@@ -5,7 +5,7 @@ import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { ProgrammesHeroAnimation } from '@/components/programmes/ProgrammesHeroAnimation';
 import { ProgrammesCatalogue } from '@/components/programmes/ProgrammesCatalogue';
 import { getProgrammes } from '@/services/programmes';
-import { Info } from 'lucide-react';
+import { Info } from '@/components/icons/GoogleIcons';
 import styles from './programmes.module.css';
 import { cn } from '@/lib/utils/cn';
 

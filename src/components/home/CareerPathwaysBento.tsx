@@ -2,7 +2,9 @@
 
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Search } from 'lucide-react';
+import { ArrowRight, Search } from '@/components/icons/GoogleIcons';
+import { PersonPlaceholder } from '@/components/shared/PersonPlaceholder';
+import { PathwayCharacterGraphic } from '@/components/shared/PathwayCharacterGraphic';
 import { gsap, ScrollTrigger, EASE, TIMING, prefersReducedMotion, isClient } from '@/animations/gsap';
 import styles from './CareerPathwaysBento.module.css';
 
@@ -58,11 +60,7 @@ export const CareerPathwaysBento: React.FC = () => {
             </div>
 
             <div className={styles.pathwayPhotoWrapper}>
-              <img
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=700&q=80"
-                alt="Technology and AI Healthcare Learning"
-                className={styles.pathwayPhotoImg}
-              />
+              <PathwayCharacterGraphic className={styles.pathwayPhotoImg} />
               <div className={styles.pathwayTagBar}>
                 <span className={styles.tagPill}>Analytics</span>
                 <span className={styles.tagPill}>Data Science</span>
@@ -86,9 +84,10 @@ export const CareerPathwaysBento: React.FC = () => {
             <div className={styles.radialNetworkArea}>
               {/* Central Mentor / Lead Node */}
               <div className={styles.rootAvatarNode}>
-                <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&q=80"
-                  alt="Integrated Pathway Lead"
+                <PersonPlaceholder
+                  variant="lead"
+                  name="Integrated Pathway Lead"
+                  size={64}
                   className={styles.avatarImg}
                 />
               </div>
@@ -98,9 +97,10 @@ export const CareerPathwaysBento: React.FC = () => {
                 {/* Branch 1 */}
                 <div className={styles.branchLine1} />
                 <div className={styles.leafAvatar1}>
-                  <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80"
-                    alt="Clinical Data Analyst"
+                  <PersonPlaceholder
+                    variant="analyst"
+                    name="Clinical Data Analyst"
+                    size={40}
                     className={styles.miniAvatarImg}
                   />
                   <span className={styles.leafNamePill}>Analytics Lead</span>
@@ -109,9 +109,10 @@ export const CareerPathwaysBento: React.FC = () => {
                 {/* Branch 2 */}
                 <div className={styles.branchLine2} />
                 <div className={styles.leafAvatar2}>
-                  <img
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80"
-                    alt="Senior Coding Specialist"
+                  <PersonPlaceholder
+                    variant="coder"
+                    name="Senior Coding Specialist"
+                    size={40}
                     className={styles.miniAvatarImg}
                   />
                   <span className={styles.leafNamePill}>Senior Coder</span>
@@ -120,9 +121,10 @@ export const CareerPathwaysBento: React.FC = () => {
                 {/* Branch 3 */}
                 <div className={styles.branchLine3} />
                 <div className={styles.leafAvatar3}>
-                  <img
-                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80"
-                    alt="RCM Operations Manager"
+                  <PersonPlaceholder
+                    variant="auditor"
+                    name="RCM Operations Manager"
+                    size={40}
                     className={styles.miniAvatarImg}
                   />
                   <span className={styles.leafNamePill}>RCM Auditor</span>

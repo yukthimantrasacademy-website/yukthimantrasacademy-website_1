@@ -13,7 +13,8 @@ import {
   ArrowRight,
   ShieldCheck,
   Plus,
-} from 'lucide-react';
+} from '@/components/icons/GoogleIcons';
+import { PersonPlaceholder } from '@/components/shared/PersonPlaceholder';
 import { gsap, ScrollTrigger, EASE, TIMING, prefersReducedMotion, isClient } from '@/animations/gsap';
 import styles from './WhyChooseBento.module.css';
 
@@ -62,17 +63,18 @@ export const WhyChooseBento: React.FC = () => {
         <div className={styles.widgetMessage}>
           <div className={styles.messageHeader}>
             <div className={styles.authorGroup}>
-              <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80"
-                alt="Dr. Priya Sharma"
+              <PersonPlaceholder
+                variant="advisor"
+                name="Dileep Surya"
+                size={44}
                 className={styles.authorAvatar}
               />
               <div className={styles.authorMeta}>
                 <div className={styles.authorNameRow}>
-                  <span className={styles.authorName}>Dr. Priya Sharma</span>
+                  <span className={styles.authorName}>Dileep Surya</span>
                   <span className={styles.authorTime}>Today, 10:12 am</span>
                 </div>
-                <span className={styles.authorRole}>Academic Director • YukthiMantra</span>
+                <span className={styles.authorRole}>Founder & CEO • YukthiMantra Services & YukthiMantra’s Academy</span>
               </div>
             </div>
             <div className={styles.messageHeaderIcons}>
@@ -138,24 +140,28 @@ export const WhyChooseBento: React.FC = () => {
         {/* WIDGET 3: 2X2 FACULTY PILL */}
         <div className={styles.widgetFacultyCluster}>
           <div className={styles.avatars2x2}>
-            <img
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80"
-              alt="Faculty 1"
+            <PersonPlaceholder
+              variant="faculty-1"
+              name="Faculty 1"
+              size={36}
               className={styles.clusterImg}
             />
-            <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80"
-              alt="Faculty 2"
+            <PersonPlaceholder
+              variant="faculty-2"
+              name="Faculty 2"
+              size={36}
               className={styles.clusterImg}
             />
-            <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80"
-              alt="Faculty 3"
+            <PersonPlaceholder
+              variant="faculty-3"
+              name="Faculty 3"
+              size={36}
               className={styles.clusterImg}
             />
-            <img
-              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80"
-              alt="Faculty 4"
+            <PersonPlaceholder
+              variant="faculty-4"
+              name="Faculty 4"
+              size={36}
               className={styles.clusterImg}
             />
           </div>
@@ -172,9 +178,10 @@ export const WhyChooseBento: React.FC = () => {
               <span className={styles.welcomeGreeting}>Active Learner Portal</span>
               <h4 className={styles.welcomeUserName}>Samantha L. (Data Science Track)</h4>
             </div>
-            <img
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
-              alt="Samantha"
+            <PersonPlaceholder
+              variant="student"
+              name="Samantha L."
+              size={48}
               className={styles.welcomeAvatar}
             />
           </div>
@@ -199,9 +206,10 @@ export const WhyChooseBento: React.FC = () => {
           <span className={styles.calendarDay}>Rolling Intake</span>
           <h3 className={styles.calendarBigDate}>Every Month</h3>
           <div className={styles.calendarFooter}>
-            <img
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=80&q=80"
-              alt="Intake icon"
+            <PersonPlaceholder
+              variant="lead"
+              name="Intake Lead"
+              size={28}
               className={styles.calendarSmallAvatar}
             />
             <span className={styles.calendarFooterText}>Degree Holders &amp; Final Year</span>
@@ -231,9 +239,10 @@ export const WhyChooseBento: React.FC = () => {
           {/* Mentors List */}
           <div className={styles.mentorsStack}>
             <div className={styles.mentorRow}>
-              <img
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
-                alt="William Moore"
+              <PersonPlaceholder
+                variant="mentor-william"
+                name="William Moore"
+                size={44}
                 className={styles.mentorAvatar}
               />
               <div className={styles.mentorInfo}>
@@ -246,9 +255,10 @@ export const WhyChooseBento: React.FC = () => {
             </div>
 
             <div className={styles.mentorRow}>
-              <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80"
-                alt="Linda Wilson"
+              <PersonPlaceholder
+                variant="mentor-linda"
+                name="Linda Wilson"
+                size={44}
                 className={styles.mentorAvatar}
               />
               <div className={styles.mentorInfo}>
@@ -261,9 +271,10 @@ export const WhyChooseBento: React.FC = () => {
             </div>
 
             <div className={styles.mentorRow}>
-              <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
-                alt="Patricia Davis"
+              <PersonPlaceholder
+                variant="mentor-patricia"
+                name="Patricia Davis"
+                size={44}
                 className={styles.mentorAvatar}
               />
               <div className={styles.mentorInfo}>
@@ -279,9 +290,10 @@ export const WhyChooseBento: React.FC = () => {
           {/* Bottom Floating Pill */}
           <Link href="/admission-counselling" className={styles.sendRequestPill}>
             <span>Book Free Counselling</span>
-            <img
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80"
-              alt="Advisor"
+            <PersonPlaceholder
+              variant="advisor"
+              name="Advisor"
+              size={28}
               className={styles.pillAvatar}
             />
           </Link>
@@ -306,9 +318,10 @@ export const WhyChooseBento: React.FC = () => {
               <span className={styles.placementLabel}>Primary Placement &amp; Hiring Networks</span>
               <div className={styles.partnerRow}>
                 <div className={styles.partnerUser}>
-                  <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
-                    alt="Corporate Partner"
+                  <PersonPlaceholder
+                    variant="corporate"
+                    name="Corporate Partner"
+                    size={42}
                     className={styles.partnerAvatar}
                   />
                   <div className={styles.partnerMeta}>
@@ -318,14 +331,16 @@ export const WhyChooseBento: React.FC = () => {
                 </div>
 
                 <div className={styles.overlappingPartnerAvatars}>
-                  <img
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80"
-                    alt="P1"
+                  <PersonPlaceholder
+                    variant="faculty-1"
+                    name="Partner 1"
+                    size={32}
                     className={styles.partnerMiniAvatar}
                   />
-                  <img
-                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&q=80"
-                    alt="P2"
+                  <PersonPlaceholder
+                    variant="faculty-2"
+                    name="Partner 2"
+                    size={32}
                     className={styles.partnerMiniAvatar}
                   />
                 </div>
@@ -339,9 +354,10 @@ export const WhyChooseBento: React.FC = () => {
             <div className={styles.widgetSuggestion}>
               <span className={styles.suggestionTop}>Yukthi Advisory Suggestion</span>
               <div className={styles.suggestionAvatarWrap}>
-                <img
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80"
-                  alt="Advisor"
+                <PersonPlaceholder
+                  variant="advisor"
+                  name="Academic Advisor"
+                  size={52}
                   className={styles.suggestionAvatar}
                 />
               </div>

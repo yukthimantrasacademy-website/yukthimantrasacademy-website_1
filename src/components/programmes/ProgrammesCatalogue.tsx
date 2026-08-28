@@ -7,7 +7,7 @@ import { ProgrammeFilters } from '@/components/programmes/ProgrammeFilters';
 import { ProgrammeGrid } from '@/components/programmes/ProgrammeGrid';
 import { searchProgrammes, filterProgrammes } from '@/services/programmes';
 import { Button } from '@/components/shared/Button';
-import { SearchX, RotateCcw } from 'lucide-react';
+import { SearchX, RotateCcw } from '@/components/icons/GoogleIcons';
 import styles from './ProgrammesCatalogue.module.css';
 
 interface ProgrammesCatalogueProps {

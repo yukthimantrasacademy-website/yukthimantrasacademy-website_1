@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import Link from 'next/link';
-import { X, ArrowRight, Home as HomeIcon } from 'lucide-react';
+import { X, ArrowRight, Home as HomeIcon } from '@/components/icons/GoogleIcons';
 import { Button } from '@/components/shared/Button';
 import { smoothScrollTo } from '@/components/shared/SmoothScrollProvider';
 import styles from './MobileMenu.module.css';

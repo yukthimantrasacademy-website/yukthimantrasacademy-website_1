@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Clock, Lightbulb } from 'lucide-react';
+import { Clock, Lightbulb } from '@/components/icons/GoogleIcons';
 import { gsap, ScrollTrigger, EASE, prefersReducedMotion, isClient } from '@/animations/gsap';
 import styles from './PlayfulAboutHeadline.module.css';
 import { cn } from '@/lib/utils/cn';

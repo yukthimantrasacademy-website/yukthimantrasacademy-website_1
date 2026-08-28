@@ -10,7 +10,7 @@ import {
   Rocket,
   Check,
   Sparkles,
-} from 'lucide-react';
+} from '@/components/icons/GoogleIcons';
 import { gsap, prefersReducedMotion, isClient } from '@/animations/gsap';
 import styles from './AdmissionProcessFlow.module.css';
 import { cn } from '@/lib/utils/cn';

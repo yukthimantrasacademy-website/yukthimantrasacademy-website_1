@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { Sparkles } from 'lucide-react';
+import { Sparkles } from '@/components/icons/GoogleIcons';
 import { gsap, EASE, prefersReducedMotion, isClient } from '@/animations/gsap';
 import styles from './ProgrammesHeroAnimation.module.css';
 

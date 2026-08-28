@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Check, Timer, Clock } from 'lucide-react';
+import { Check, Timer, Clock } from '@/components/icons/GoogleIcons';
 import { gsap, EASE, prefersReducedMotion, isClient } from '@/animations/gsap';
 import styles from './CareerFloatingCards.module.css';
 

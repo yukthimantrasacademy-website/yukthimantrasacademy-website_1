@@ -13,7 +13,7 @@ import {
   Code2,
   FileText,
   UserCheck,
-} from 'lucide-react';
+} from '@/components/icons/GoogleIcons';
 import { SectionHeading } from '@/components/shared/SectionHeading';
 import { CTASection } from '@/components/shared/CTASection';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';

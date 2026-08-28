@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { Menu, X } from '@/components/icons/GoogleIcons';
 import { leftNavItems, rightNavItems } from '@/data/navigation';
 import { MobileMenu } from './MobileMenu';
 import styles from './Navbar.module.css';

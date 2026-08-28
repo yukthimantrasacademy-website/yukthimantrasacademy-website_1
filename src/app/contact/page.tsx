@@ -9,7 +9,7 @@ import {
   Headphones,
   ShieldCheck,
   ArrowRight,
-} from 'lucide-react';
+} from '@/components/icons/GoogleIcons';
 import { SectionHeading } from '@/components/shared/SectionHeading';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { Button } from '@/components/shared/Button';

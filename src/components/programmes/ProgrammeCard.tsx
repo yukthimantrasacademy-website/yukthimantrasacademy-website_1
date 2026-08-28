@@ -2,7 +2,8 @@
 
 import React, { useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, Check } from 'lucide-react';
+import { ArrowUpRight, Check } from '@/components/icons/GoogleIcons';
+import { ProgrammeGraphic } from '@/components/shared/ProgrammeGraphic';
 import type { Programme } from '@/types/programme';
 import { gsap, EASE, TIMING, prefersReducedMotion, isClient } from '@/animations/gsap';
 import styles from './ProgrammeCard.module.css';
@@ -14,59 +15,48 @@ interface ProgrammeCardProps {
   className?: string;
 }
 
-const programmeMedia: Record<string, { image: string; badge: string; points: string[] }> = {
+const programmeMediaPoints: Record<string, { badge: string; points: string[] }> = {
   'prog-01': {
-    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80',
     badge: '500+ Clinical Datasets',
     points: ['2–4 Months • Online / Hybrid', 'Excel, SQL, Python & Power BI', 'Clinical analytics portfolio & capstone'],
   },
   'prog-02': {
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
     badge: 'Clinical ML Models',
     points: ['6–9 Months • Weekend / Classroom', 'Python, Scikit-learn, ML & Stats', 'Real-world healthcare predictive cases'],
   },
   'prog-03': {
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80',
     badge: 'Deep Learning & NLP',
     points: ['4–6 Months • Advanced Track', 'Computer Vision & Clinical NLP', 'Medical imaging & diagnostic algorithms'],
   },
   'prog-04': {
-    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
     badge: 'RAG & Clinical Agents',
     points: ['6–10 Weeks • Intensive', 'Prompt Engineering, LLMs & RAG', 'Automated EHR notes & triage agents'],
   },
   'prog-05': {
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
     badge: 'Automation & APIs',
     points: ['4–8 Weeks • Foundation', 'NumPy, Pandas & Healthcare APIs', 'Data pipelines & clinical automation'],
   },
   'prog-06': {
-    image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80',
     badge: 'Pipelines & Cloud MLOps',
     points: ['3–5 Months • Engineering', 'Supervised & Unsupervised ML', 'Model deployment & monitoring pipelines'],
   },
   'prog-07': {
-    image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
     badge: 'CPC® Exam Ready',
     points: ['3–6 Months • Classroom / Online', 'ICD-10-CM, CPT & HCPCS Level II', 'AAPC curriculum & mock case practice'],
   },
   'prog-08': {
-    image: 'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80',
     badge: 'Inpatient & ICD-10-PCS',
     points: ['4–6 Months • Hospital Track', 'ICD-10-PCS & MS-DRG grouping', 'AHIMA CCS examination simulation'],
   },
   'prog-09': {
-    image: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80',
     badge: 'Denial Management',
     points: ['2–4 Months • Operational', 'US Healthcare Billing & EDI 837/835', 'AR follow-up & claims appeals'],
   },
   'prog-10': {
-    image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80',
     badge: 'EHR / EMR Systems',
     points: ['4–6 Months • Digital Health', 'Epic, Cerner, HL7 & FHIR basics', 'Clinical data governance & HIPAA'],
   },
   'prog-11': {
-    image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80',
     badge: 'Dual Specialisation',
     points: ['6–9 Months • Flagship', 'Medical Coding + Healthcare Analytics', 'End-to-end clinical data cycle'],
   },
@@ -79,8 +69,7 @@ export const ProgrammeCard: React.FC<ProgrammeCardProps> = ({
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
-  const media = programmeMedia[programme.id] || {
-    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80',
+  const media = programmeMediaPoints[programme.id] || {
     badge: `${programme.duration} • Track`,
     points: [
       `${programme.duration} Duration`,
@@ -96,7 +85,7 @@ export const ProgrammeCard: React.FC<ProgrammeCardProps> = ({
 
     const card = cardRef.current;
     const arrow = card.querySelector(`.${styles.ctaArrow}`);
-    const img = card.querySelector(`.${styles.programmeImage}`);
+    const img = card.querySelector(`.${styles.imageContainer}`);
 
     // Card entrance and internal elements reveal timeline on scroll trigger
     const ctx = gsap.context(() => {
@@ -198,7 +187,7 @@ export const ProgrammeCard: React.FC<ProgrammeCardProps> = ({
     const handleMouseEnter = () => {
       gsap.to(card, { y: -4, duration: 0.25, ease: EASE.secondary });
       if (arrow) gsap.to(arrow, { x: 2, y: -2, duration: 0.2, ease: EASE.secondary });
-      if (img) gsap.to(img, { scale: 1.04, duration: 0.35, ease: EASE.secondary });
+      if (img) gsap.to(img, { scale: 1.03, duration: 0.35, ease: EASE.secondary });
     };
 
     const handleMouseLeave = () => {
@@ -260,14 +249,13 @@ export const ProgrammeCard: React.FC<ProgrammeCardProps> = ({
         </div>
       </div>
 
-      {/* RIGHT COLUMN: PHOTO WITH FLOATING BADGE */}
+      {/* RIGHT COLUMN: GRAPHIC FIGURE WITH FLOATING BADGE */}
       <div className={styles.rightCol}>
         <div className={styles.imageContainer}>
-          <img
-            src={media.image}
-            alt={programme.title}
-            className={styles.programmeImage}
-            loading="lazy"
+          <ProgrammeGraphic
+            programmeId={programme.id}
+            category={programme.category}
+            title={programme.title}
           />
           <div className={styles.floatingBadge}>
             <span className={styles.neonPulseDot} />

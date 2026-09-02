@@ -105,7 +105,7 @@ export default function RootLayout({
         />
         <JsonLd data={[orgSchema, webSiteSchema]} />
       </head>
-      <body className="font-sans">
+      <body className="font-sans" suppressHydrationWarning>
         <SmoothScrollProvider>
           <ScrollProgressBar />
           <Navbar />

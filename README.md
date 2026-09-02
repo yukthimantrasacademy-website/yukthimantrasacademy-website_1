@@ -1,97 +1,118 @@
-````md
-# Yukthimantra's Academy
+# YukthiMantra Academy — Multi-App Monorepo
 
-## Purpose
+> Enterprise-grade multi-application monorepo powering the **YukthiMantra Academy** digital ecosystem.
 
-Yukthimantra's Academy is a career-focused academy that connects **technology and healthcare** through industry-oriented programmes and career pathways.
+[![CI Status](https://github.com/yukthimantrasacademy-website/yukthimantrasacademy-website_1/actions/workflows/ci.yml/badge.svg)](https://github.com/yukthimantrasacademy-website/yukthimantrasacademy-website_1/actions/workflows/ci.yml)
+[![Next.js](https://img.shields.io/badge/Next.js-16.3.2-black?logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.2.8-blue?logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-The website is designed to help **students pursuing graduation and graduates** understand their career options, explore relevant programmes, check eligibility, and connect with the Academy for counselling and admission. :contentReference[oaicite:0]{index=0}
+---
 
-## What the Website Helps Users Do
+## 🏛️ Ecosystem Overview
 
-```text
-Discover Career Options
-        ↓
-Explore Programmes
-        ↓
-Understand Career Pathways
-        ↓
-Check Eligibility
-        ↓
-Book Admission Counselling
-        ↓
-Get Programme Recommendation
-        ↓
-Proceed Towards Enrolment
-````
-
-## Core Areas
-
-### Technology + AI
-
-* Data Analytics
-* Data Science
-* Artificial Intelligence
-* Generative AI
-* Python & Automation
-* Machine Learning & MLOps
-
-### Healthcare + Operations
-
-* Medical Coding
-* Clinical & Hospital Coding
-* Medical Billing
-* Revenue Cycle Management
-* Healthcare IT
-* Clinical Data
-* Integrated Healthcare + Analytics
-
-These programmes are positioned as **technology + healthcare career pathways**, rather than standalone IT or medical courses. 
-
-## Who the Website Is For
-
-The Academy is intended for:
-
-* Students currently pursuing graduation
-* Graduates who have completed graduation
-* Eligible working professionals
-
-Candidates are guided through counselling to identify a suitable programme based on their academic background and career goals. 
-
-## Main User Journey
-
-```text
-Home
-  ↓
-Programmes
-  ↓
-Career Pathways
-  ↓
-Eligibility
-  ↓
-Admission Counselling
-  ↓
-Programme Recommendation
-  ↓
-Enrolment
-```
-
-## Main Website Pages
-
-1. Home
-2. Programmes
-3. Career Pathways
-4. Eligibility
-5. Admission Counselling
-6. About
-7. Career Support
-8. Contact
-
-The FAQ is a section on the Home page and is accessed through `/#faq`.
-
-## Primary Purpose
-
-> **Help the right learner find the right technology or healthcare career pathway, confirm eligibility, and connect with the Academy for professional counselling.** 
+This single GitHub repository contains three independently deployable applications and shared foundation packages:
 
 ```
+yukthimantrasacademy-website_1/
+├── 🌐 yukthimantra.com/         → Production Marketing & Admissions Portal
+├── 🎓 app.yukthimantra.com/     → Academy Candidate & Mentor Platform (Coming Soon)
+├── 🎟️ events.yukthimantra.com/  → Workshops, Hackathons & Seminars (Coming Soon)
+├── 📦 packages/
+│   ├── design-system/          → Colors, typography, spacing & visual tokens
+│   ├── types/                  → Shared TypeScript definitions & contracts
+│   ├── ui/                     → Component library contracts
+│   └── utils/                  → Common validators and helpers
+├── 📚 docs/
+│   ├── architecture/           → Monorepo layout & shared packages guides
+│   ├── deployment/             → Vercel & Hostinger DNS instructions
+│   └── roadmap/                → Product & events roadmaps
+└── ⚙️ .github/                  → CI workflows, issue & PR templates
 ```
+
+---
+
+## 🚀 Live Domains & Vercel Deployment Map
+
+Each application deploys independently from this same GitHub repository using Vercel's native **Root Directory** setting:
+
+| Domain | Application Path | Vercel Project | Target Role |
+| :--- | :--- | :--- | :--- |
+| [`yukthimantra.com`](https://yukthimantra.com) | `yukthimantra.com/` | `yukthimantrasacademy-website` | Production main website |
+| [`app.yukthimantra.com`](https://app.yukthimantra.com) | `app.yukthimantra.com/` | `yukthimantra-platform` | Academy platform |
+| [`events.yukthimantra.com`](https://events.yukthimantra.com) | `events.yukthimantra.com/` | `yukthimantra-events` | Events & workshops |
+
+---
+
+## 💻 Local Development Quickstart
+
+### Prerequisites
+- **Node.js** >= 20.x
+- **npm** >= 10.x
+
+### Run Local Development Servers
+
+```bash
+# Clone the repository
+git clone https://github.com/yukthimantrasacademy-website/yukthimantrasacademy-website_1.git
+cd yukthimantrasacademy-website_1
+
+# Start Main Website (runs on http://localhost:3000)
+npm run dev:main
+
+# Start Academy Platform (runs on http://localhost:3001)
+npm run dev:app
+
+# Start Events Portal (runs on http://localhost:3002)
+npm run dev:events
+```
+
+### Build Verification
+
+```bash
+# Build all three applications sequentially
+npm run build:all
+
+# Or build individual applications:
+npm run build:main
+npm run build:app
+npm run build:events
+```
+
+### Linting
+
+```bash
+npm run lint:all
+```
+
+---
+
+## 🌐 DNS & Hostinger Configuration
+
+- **Apex Domain (`yukthimantra.com`)**: Stays unchanged. No modification needed to existing A or AAAA records.
+- **Subdomains (`app` & `events`)**: In Hostinger DNS Zone, add standard CNAME records:
+  - `app` → `cname.vercel-dns.com`
+  - `events` → `cname.vercel-dns.com`
+- **Mail (MX/TXT)**: Untouched.
+
+For full step-by-step instructions, see [`docs/deployment/hostinger-dns-configuration.md`](docs/deployment/hostinger-dns-configuration.md) and [`docs/deployment/vercel-monorepo-setup.md`](docs/deployment/vercel-monorepo-setup.md).
+
+---
+
+## 📖 Documentation Index
+
+- [Architecture & Design Decisions](docs/architecture/monorepo-structure.md)
+- [Shared Packages Usage Guide](docs/architecture/shared-packages-guide.md)
+- [Vercel Monorepo Setup Guide](docs/deployment/vercel-monorepo-setup.md)
+- [Hostinger DNS Configuration](docs/deployment/hostinger-dns-configuration.md)
+- [Academy Platform Roadmap](docs/roadmap/platform-roadmap.md)
+- [Events & Workshops Roadmap](docs/roadmap/events-roadmap.md)
+- [Contribution Guidelines](CONTRIBUTING.md)
+- [Security Policy](SECURITY.md)
+
+---
+
+## 🛡️ License
+
+Distributed under the MIT License. See [LICENSE](LICENSE) for details.

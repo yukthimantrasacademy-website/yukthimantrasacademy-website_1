@@ -1,26 +1,35 @@
 {
-  "name": "nextinit",
-  "version": "0.1.0",
+  "name": "yukthimantra-monorepo",
+  "version": "1.0.0",
   "private": true,
+  "description": "YukthiMantra Academy multi-application enterprise monorepo",
+  "workspaces": [
+    "yukthimantra.com",
+    "app.yukthimantra.com",
+    "events.yukthimantra.com",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "dev:main": "npm --prefix yukthimantra.com run dev",
+    "dev:app": "npm --prefix app.yukthimantra.com run dev",
+    "dev:events": "npm --prefix events.yukthimantra.com run dev",
+    "build:main": "npm --prefix yukthimantra.com run build",
+    "build:app": "npm --prefix app.yukthimantra.com run build",
+    "build:events": "npm --prefix events.yukthimantra.com run build",
+    "build:all": "npm run build:main && npm run build:app && npm run build:events",
+    "lint:main": "npm --prefix yukthimantra.com run lint",
+    "lint:app": "npm --prefix app.yukthimantra.com run lint",
+    "lint:events": "npm --prefix events.yukthimantra.com run lint",
+    "lint:all": "npm run lint:main && npm run lint:app && npm run lint:events"
   },
-  "dependencies": {
-    "gsap": "^3.15.0",
-    "locomotive-scroll": "^5.0.1",
-    "next": "16.3.2",
-    "react": "19.2.8",
-    "react-dom": "19.2.8"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.3.2",
-    "typescript": "^5"
-  }
+  "keywords": [
+    "yukthimantra",
+    "academy",
+    "nextjs",
+    "monorepo",
+    "healthcare-ai",
+    "data-science"
+  ],
+  "author": "YukthiMantra Academy",
+  "license": "MIT"
 }

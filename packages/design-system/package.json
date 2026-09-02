@@ -1,0 +1,14 @@
+{
+  "name": "@yukthimantra/design-system",
+  "version": "1.0.0",
+  "description": "Shared design tokens, theme constants, and style guidelines for YukthiMantra Academy",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5"
+  }
+}

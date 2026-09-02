@@ -1,0 +1,14 @@
+{
+  "name": "@yukthimantra/utils",
+  "version": "1.0.0",
+  "description": "Shared utility helpers, validators, and formatters for YukthiMantra Academy",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5"
+  }
+}

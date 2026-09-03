@@ -2,9 +2,9 @@
 Provide a concise explanation of the changes made and the problem being solved.
 
 ## Affected Application(s)
-- [ ] `yukthimantra.com` (Main Website)
-- [ ] `app.yukthimantra.com` (Academy Platform)
-- [ ] `events.yukthimantra.com` (Events Portal)
+- [ ] `yukthimantrasacademy.com` (Main Website)
+- [ ] `app.yukthimantrasacademy.com` (Academy Platform)
+- [ ] `events.yukthimantrasacademy.com` (Events Portal)
 - [ ] `packages/*` (Shared Packages)
 - [ ] Documentation / CI / Infrastructure
 

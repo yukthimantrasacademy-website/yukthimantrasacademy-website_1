@@ -13,4 +13,4 @@ This directory contains shared packages for the YukthiMantra Academy multi-appli
 
 ## Architecture & Sharing Strategy
 
-Applications (`yukthimantra.com`, `app.yukthimantra.com`, `events.yukthimantra.com`) remain independently deployable to Vercel without requiring complex bundler toolchains or Turborepo. As components mature, they can be extracted and referenced here.
+Applications (`yukthimantrasacademy.com`, `app.yukthimantrasacademy.com`, `events.yukthimantrasacademy.com`) remain independently deployable to Vercel without requiring complex bundler toolchains or Turborepo. As components mature, they can be extracted and referenced here.

@@ -1,4 +1,4 @@
-# Academy Platform Roadmap (`app.yukthimantra.com`)
+# Academy Platform Roadmap (`app.yukthimantrasacademy.com`)
 
 ## Phase 1: Coming Soon & Early Access Capture (Current)
 - [x] High-converting Coming Soon landing interface

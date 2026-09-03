@@ -11,7 +11,7 @@ export const siteConfig = {
     'Career-focused programmes at the intersection of technology and healthcare. For graduates and students pursuing graduation.',
 
   /** Current public website URL */
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.yukthimantrasacademy.com/',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://yukthimantrasacademy.com',
 
   /** Future platform URL */
   platformUrl: process.env.NEXT_PUBLIC_PLATFORM_URL || '',

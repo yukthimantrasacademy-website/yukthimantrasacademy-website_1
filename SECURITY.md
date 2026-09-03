@@ -6,9 +6,9 @@ Security updates are actively applied to the main branch and deployed to product
 
 | Application / Package | Supported |
 | :--- | :--- |
-| `yukthimantra.com` | :white_check_mark: |
-| `app.yukthimantra.com` | :white_check_mark: |
-| `events.yukthimantra.com` | :white_check_mark: |
+| `yukthimantrasacademy.com` | :white_check_mark: |
+| `app.yukthimantrasacademy.com` | :white_check_mark: |
+| `events.yukthimantrasacademy.com` | :white_check_mark: |
 | `packages/*` | :white_check_mark: |
 
 ## Reporting a Vulnerability
@@ -16,7 +16,7 @@ Security updates are actively applied to the main branch and deployed to product
 If you discover a potential security vulnerability within any application or shared package in this repository, please report it responsibly:
 
 1. **Do not** open a public GitHub issue.
-2. Email security details and reproduction steps to: **security@yukthimantra.com** (or contact the academy administration via [contact page](https://yukthimantra.com/contact)).
+2. Email security details and reproduction steps to: **security@yukthimantrasacademy.com** (or contact the academy administration via [contact page](https://yukthimantrasacademy.com/contact)).
 3. Include:
    - Affected application/domain
    - Step-by-step reproduction instructions

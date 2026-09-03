@@ -16,9 +16,9 @@ This single GitHub repository contains three independently deployable applicatio
 
 ```
 yukthimantrasacademy-website_1/
-├── 🌐 yukthimantra.com/         → Production Marketing & Admissions Portal
-├── 🎓 app.yukthimantra.com/     → Academy Candidate & Mentor Platform (Coming Soon)
-├── 🎟️ events.yukthimantra.com/  → Workshops, Hackathons & Seminars (Coming Soon)
+├── 🌐 yukthimantrasacademy.com/         → Production Marketing & Admissions Portal
+├── 🎓 app.yukthimantrasacademy.com/     → Academy Candidate & Mentor Platform (Coming Soon)
+├── 🎟️ events.yukthimantrasacademy.com/  → Workshops, Hackathons & Seminars (Coming Soon)
 ├── 📦 packages/
 │   ├── design-system/          → Colors, typography, spacing & visual tokens
 │   ├── types/                  → Shared TypeScript definitions & contracts
@@ -39,9 +39,9 @@ Each application deploys independently from this same GitHub repository using Ve
 
 | Domain | Application Path | Vercel Project | Target Role |
 | :--- | :--- | :--- | :--- |
-| [`yukthimantra.com`](https://yukthimantra.com) | `yukthimantra.com/` | `yukthimantrasacademy-website` | Production main website |
-| [`app.yukthimantra.com`](https://app.yukthimantra.com) | `app.yukthimantra.com/` | `yukthimantra-platform` | Academy platform |
-| [`events.yukthimantra.com`](https://events.yukthimantra.com) | `events.yukthimantra.com/` | `yukthimantra-events` | Events & workshops |
+| [`yukthimantrasacademy.com`](https://yukthimantrasacademy.com) | `yukthimantrasacademy.com/` | `yukthimantrasacademy-website` | Production main website |
+| [`app.yukthimantrasacademy.com`](https://app.yukthimantrasacademy.com) | `app.yukthimantrasacademy.com/` | `yukthimantra-platform` | Academy platform |
+| [`events.yukthimantrasacademy.com`](https://events.yukthimantrasacademy.com) | `events.yukthimantrasacademy.com/` | `yukthimantra-events` | Events & workshops |
 
 ---
 
@@ -90,7 +90,7 @@ npm run lint:all
 
 ## 🌐 DNS & Hostinger Configuration
 
-- **Apex Domain (`yukthimantra.com`)**: Stays unchanged. No modification needed to existing A or AAAA records.
+- **Apex Domain (`yukthimantrasacademy.com`)**: Stays unchanged. No modification needed to existing A or AAAA records.
 - **Subdomains (`app` & `events`)**: In Hostinger DNS Zone, add standard CNAME records:
   - `app` → `cname.vercel-dns.com`
   - `events` → `cname.vercel-dns.com`

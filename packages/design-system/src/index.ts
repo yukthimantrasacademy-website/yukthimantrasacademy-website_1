@@ -58,8 +58,8 @@ export const radii = {
 export const siteConfig = {
   name: "YukthiMantra's Academy",
   domains: {
-    main: process.env.NEXT_PUBLIC_MAIN_SITE_URL || 'https://yukthimantra.com',
-    app: process.env.NEXT_PUBLIC_APP_SITE_URL || 'https://app.yukthimantra.com',
-    events: process.env.NEXT_PUBLIC_EVENTS_SITE_URL || 'https://events.yukthimantra.com',
+    main: process.env.NEXT_PUBLIC_MAIN_SITE_URL || 'https://yukthimantrasacademy.com',
+    app: process.env.NEXT_PUBLIC_APP_SITE_URL || 'https://app.yukthimantrasacademy.com',
+    events: process.env.NEXT_PUBLIC_EVENTS_SITE_URL || 'https://events.yukthimantrasacademy.com',
   },
 };

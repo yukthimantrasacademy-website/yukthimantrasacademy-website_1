@@ -7,9 +7,9 @@ assignees: ''
 ---
 
 **Which Application is affected?**
-- [ ] `yukthimantra.com` (Main Website)
-- [ ] `app.yukthimantra.com` (Academy Platform)
-- [ ] `events.yukthimantra.com` (Events Portal)
+- [ ] `yukthimantrasacademy.com` (Main Website)
+- [ ] `app.yukthimantrasacademy.com` (Academy Platform)
+- [ ] `events.yukthimantrasacademy.com` (Events Portal)
 - [ ] `packages/*` (Shared Packages)
 - [ ] Infrastructure / CI
 

@@ -4,7 +4,7 @@ import { siteConfig } from '@/lib/config/site';
  * Returns the base public site URL stripped of any trailing slash.
  */
 export function getSiteUrl(): string {
-  const url = process.env.NEXT_PUBLIC_SITE_URL || siteConfig.url || 'https://www.yukthimantrasacademy.com/';
+  const url = process.env.NEXT_PUBLIC_SITE_URL || siteConfig.url || 'https://yukthimantrasacademy.com';
   return url.replace(/\/+$/, '');
 }
 

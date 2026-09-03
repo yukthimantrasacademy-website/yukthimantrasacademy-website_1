@@ -6,21 +6,21 @@ The YukthiMantra codebase is structured as an enterprise-grade multi-application
 
 ```
 yukthimantrasacademy-website_1/
-├── yukthimantra.com/              # Primary production marketing & curriculum portal
+├── yukthimantrasacademy.com/              # Primary production marketing & curriculum portal
 │   ├── public/                    # Static assets, videos, manifests
 │   ├── src/                       # Next.js App Router source
 │   ├── package.json               # Independent dependencies & scripts
 │   ├── next.config.ts             # App-level Next.js configuration
 │   └── tsconfig.json              # TypeScript compilation settings
 │
-├── app.yukthimantra.com/          # Academy Candidate & Mentor platform
+├── app.yukthimantrasacademy.com/          # Academy Candidate & Mentor platform
 │   ├── public/
 │   ├── src/
 │   ├── package.json
 │   ├── next.config.ts
 │   └── tsconfig.json
 │
-├── events.yukthimantra.com/       # Masterclasses, workshops & hackathon portal
+├── events.yukthimantrasacademy.com/       # Masterclasses, workshops & hackathon portal
 │   ├── public/
 │   ├── src/
 │   ├── package.json
@@ -53,7 +53,7 @@ yukthimantrasacademy-website_1/
 
 ## Architectural Principles
 
-1. **Independent Deployability**: Each application (`yukthimantra.com`, `app.yukthimantra.com`, `events.yukthimantra.com`) contains its own `package.json`, lockfile, and Next.js configuration. A deployment trigger for one project on Vercel does not force recompilation or downtime on the other applications.
+1. **Independent Deployability**: Each application (`yukthimantrasacademy.com`, `app.yukthimantrasacademy.com`, `events.yukthimantrasacademy.com`) contains its own `package.json`, lockfile, and Next.js configuration. A deployment trigger for one project on Vercel does not force recompilation or downtime on the other applications.
 2. **Deterministic Root Directories**: Vercel utilizes its native `Root Directory` setting per project, allowing all three apps to share a single source of truth in Git without requiring complicated monorepo orchestration tools like Turborepo unless future requirements demand it.
-3. **Domain Isolation**: Each application is built to bind to its respective custom domain (`yukthimantra.com`, `app.yukthimantra.com`, `events.yukthimantra.com`) with cross-domain links configured via environment variables.
+3. **Domain Isolation**: Each application is built to bind to its respective custom domain (`yukthimantrasacademy.com`, `app.yukthimantrasacademy.com`, `events.yukthimantrasacademy.com`) with cross-domain links configured via environment variables.
 4. **Shared Token Contracts**: Shared styles and types reside under `packages/` to ensure visual consistency and type safety across current and future applications.

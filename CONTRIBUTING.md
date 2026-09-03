@@ -8,9 +8,9 @@ Thank you for contributing to YukthiMantra! Please read these guidelines before 
 
 Our repository contains three independent Next.js applications and shared packages:
 
-- `yukthimantra.com/`: Main marketing, curriculum, and admissions website.
-- `app.yukthimantra.com/`: Academy candidate and mentor portal (Coming Soon).
-- `events.yukthimantra.com/`: Workshops, seminars, and hackathons portal (Coming Soon).
+- `yukthimantrasacademy.com/`: Main marketing, curriculum, and admissions website.
+- `app.yukthimantrasacademy.com/`: Academy candidate and mentor portal (Coming Soon).
+- `events.yukthimantrasacademy.com/`: Workshops, seminars, and hackathons portal (Coming Soon).
 - `packages/`: Shared packages (`design-system`, `types`, `ui`, `utils`).
 - `docs/`: Architecture, deployment, and roadmap specifications.
 

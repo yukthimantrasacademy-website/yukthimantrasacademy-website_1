@@ -9,7 +9,7 @@ This guide explains how to point subdomains to Vercel without altering or riskin
 ## What Changes vs What Remains Untouched
 
 ### Remains Untouched (DO NOT MODIFY)
-- Apex `A` and `AAAA` records for `yukthimantra.com`
+- Apex `A` and `AAAA` records for `yukthimantrasacademy.com`
 - `www` CNAME records
 - `MX` records (e.g., Google Workspace / Hostinger Titan Mail)
 - `TXT` records (SPF, DKIM, DMARC, site verifications)
@@ -27,7 +27,7 @@ Only add two new **CNAME** records in your Hostinger DNS Zone Management console
 ## Step-by-Step in Hostinger Control Panel
 
 1. Log into your **Hostinger Dashboard** (hPanel).
-2. Go to **Domains** → Select `yukthimantra.com` → Click **DNS / Nameservers**.
+2. Go to **Domains** → Select `yukthimantrasacademy.com` → Click **DNS / Nameservers**.
 3. Under **Manage DNS records**:
    - **Type**: Select `CNAME`
    - **Name**: Enter `app`

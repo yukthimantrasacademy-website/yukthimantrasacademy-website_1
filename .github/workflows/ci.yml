@@ -18,12 +18,12 @@ jobs:
       fail-fast: false
       matrix:
         app:
-          - name: 'Main Website (yukthimantra.com)'
-            dir: 'yukthimantra.com'
-          - name: 'Academy Platform (app.yukthimantra.com)'
-            dir: 'app.yukthimantra.com'
-          - name: 'Events Portal (events.yukthimantra.com)'
-            dir: 'events.yukthimantra.com'
+          - name: 'Main Website (yukthimantrasacademy.com)'
+            dir: 'yukthimantrasacademy.com'
+          - name: 'Academy Platform (app.yukthimantrasacademy.com)'
+            dir: 'app.yukthimantrasacademy.com'
+          - name: 'Events Portal (events.yukthimantrasacademy.com)'
+            dir: 'events.yukthimantrasacademy.com'
 
     steps:
       - name: Checkout Code

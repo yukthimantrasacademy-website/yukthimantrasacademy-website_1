@@ -14,8 +14,8 @@ export default function PlatformComingSoon() {
     }
   };
 
-  const mainSiteUrl = process.env.NEXT_PUBLIC_MAIN_SITE_URL || 'https://yukthimantra.com';
-  const eventsSiteUrl = process.env.NEXT_PUBLIC_EVENTS_SITE_URL || 'https://events.yukthimantra.com';
+  const mainSiteUrl = process.env.NEXT_PUBLIC_MAIN_SITE_URL || 'https://yukthimantrasacademy.com';
+  const eventsSiteUrl = process.env.NEXT_PUBLIC_EVENTS_SITE_URL || 'https://events.yukthimantrasacademy.com';
 
   return (
     <div className={styles.wrapper}>

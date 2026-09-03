@@ -1,4 +1,4 @@
-# Events & Masterclasses Roadmap (`events.yukthimantra.com`)
+# Events & Masterclasses Roadmap (`events.yukthimantrasacademy.com`)
 
 ## Phase 1: Coming Soon & Event Teasers (Current)
 - [x] Responsive, animated Coming Soon landing interface

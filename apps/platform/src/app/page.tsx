@@ -118,7 +118,7 @@ export default function PlatformComingSoon() {
           <span>•</span>
           <a href={`${mainSiteUrl}/contact`} className={styles.footerLink}>Contact Us</a>
         </div>
-        <p>© {new Date().getFullYear()} YukthiMantra's Academy. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} YukthiMantra&apos;s Academy. All rights reserved.</p>
       </footer>
     </div>
   );

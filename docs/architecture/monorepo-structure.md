@@ -2,36 +2,22 @@
 
 ## Overview
 
-The YukthiMantra codebase is structured as an enterprise-grade multi-application monorepo designed for high modularity, independent deployment workflows on Vercel, and zero cross-application deployment coupling.
+The YukthiMantra codebase is structured as an enterprise-grade multi-application monorepo powered by **pnpm workspaces** and **Turborepo**. It is engineered for high modularity, independent deployment workflows on Vercel, and zero cross-application deployment coupling.
 
 ```
 yukthimantrasacademy-website_1/
-├── yukthimantrasacademy.com/              # Primary production marketing & curriculum portal
-│   ├── public/                    # Static assets, videos, manifests
-│   ├── src/                       # Next.js App Router source
-│   ├── package.json               # Independent dependencies & scripts
-│   ├── next.config.ts             # App-level Next.js configuration
-│   └── tsconfig.json              # TypeScript compilation settings
+├── apps/
+│   ├── website/                   # Primary marketing, curriculum & admissions platform (yukthimantrasacademy.com)
+│   ├── platform/                  # Academy Candidate & Mentor platform (app.yukthimantrasacademy.com)
+│   └── events/                    # Masterclasses, webinars & hackathon portal (events.yukthimantrasacademy.com)
 │
-├── app.yukthimantrasacademy.com/          # Academy Candidate & Mentor platform
-│   ├── public/
-│   ├── src/
-│   ├── package.json
-│   ├── next.config.ts
-│   └── tsconfig.json
-│
-├── events.yukthimantrasacademy.com/       # Masterclasses, workshops & hackathon portal
-│   ├── public/
-│   ├── src/
-│   ├── package.json
-│   ├── next.config.ts
-│   └── tsconfig.json
-│
-├── packages/                      # Shared internal libraries & design tokens
-│   ├── design-system/             # Color tokens, typography, shadows, spacing
+├── packages/                      # Shared workspace libraries
+│   ├── ui/                        # Reusable component primitives (Button, Badge, Card, Modal, Accordion)
+│   ├── design-system/             # Color tokens, typography, shadows, spacing, animations
 │   ├── types/                     # Shared domain contracts & TypeScript interfaces
-│   ├── ui/                        # Reusable component contracts
-│   └── utils/                     # Formatting, validation, helper routines
+│   ├── config/                    # Shared domain constants, brand parameters, environment helpers
+│   ├── utils/                     # Formatting, validation, helper routines
+│   └── api-client/                # Typed API client abstraction for leads & admissions
 │
 ├── docs/                          # Architectural, operational & deployment specifications
 │   ├── architecture/              # System architecture guides
@@ -39,21 +25,23 @@ yukthimantrasacademy-website_1/
 │   └── roadmap/                   # Feature roadmaps
 │
 ├── .github/                       # CI/CD workflows, templates & code ownership
-│   ├── workflows/ci.yml           # Multi-app matrix test & build pipeline
+│   ├── workflows/ci.yml           # Unified pnpm & Turborepo build, lint & typecheck CI
 │   ├── ISSUE_TEMPLATE/            # Standardized GitHub issue templates
 │   ├── pull_request_template.md   # Pull request review checklist
 │   └── CODEOWNERS                 # Code ownership rules
 │
+├── pnpm-workspace.yaml            # pnpm workspace definition (apps/* and packages/*)
+├── turbo.json                     # Turborepo task pipeline orchestration
+├── package.json                   # Root workspace orchestration
 ├── README.md                      # Workspace documentation & quickstart
 ├── CONTRIBUTING.md                # Development standards & guidelines
 ├── SECURITY.md                    # Vulnerability reporting process
-├── LICENSE                        # Project licensing
-└── package.json                   # Root workspace orchestration
+└── LICENSE                        # Project licensing
 ```
 
 ## Architectural Principles
 
-1. **Independent Deployability**: Each application (`yukthimantrasacademy.com`, `app.yukthimantrasacademy.com`, `events.yukthimantrasacademy.com`) contains its own `package.json`, lockfile, and Next.js configuration. A deployment trigger for one project on Vercel does not force recompilation or downtime on the other applications.
-2. **Deterministic Root Directories**: Vercel utilizes its native `Root Directory` setting per project, allowing all three apps to share a single source of truth in Git without requiring complicated monorepo orchestration tools like Turborepo unless future requirements demand it.
-3. **Domain Isolation**: Each application is built to bind to its respective custom domain (`yukthimantrasacademy.com`, `app.yukthimantrasacademy.com`, `events.yukthimantrasacademy.com`) with cross-domain links configured via environment variables.
-4. **Shared Token Contracts**: Shared styles and types reside under `packages/` to ensure visual consistency and type safety across current and future applications.
+1. **Independent Deployability**: Each application (`apps/website`, `apps/platform`, `apps/events`) contains its own Next.js configuration and can be built and deployed independently to Vercel without triggering builds or downtime on other applications.
+2. **Deterministic Root Directories**: Vercel utilizes its native `Root Directory` setting (`apps/website`, `apps/platform`, `apps/events`), allowing all three apps to share a single source of truth in Git.
+3. **Domain Isolation**: Each application binds to its respective custom domain (`yukthimantrasacademy.com`, `app.yukthimantrasacademy.com`, `events.yukthimantrasacademy.com`) with cross-domain links configured via environment variables and shared constants in `@yukthimantra/config`.
+4. **Shared Token Contracts & Component Primitives**: Shared styles, types, utilities, and components reside under `packages/` to ensure visual consistency and type safety across applications.

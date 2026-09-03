@@ -2,9 +2,10 @@
 * @yukthimantrasacademy-website
 
 # Application-specific owners
-/yukthimantrasacademy.com/ @yukthimantrasacademy-website
-/app.yukthimantrasacademy.com/ @yukthimantrasacademy-website
-/events.yukthimantrasacademy.com/ @yukthimantrasacademy-website
+/apps/ @yukthimantrasacademy-website
+/apps/website/ @yukthimantrasacademy-website
+/apps/platform/ @yukthimantrasacademy-website
+/apps/events/ @yukthimantrasacademy-website
 /packages/ @yukthimantrasacademy-website
 /.github/ @yukthimantrasacademy-website
 /docs/ @yukthimantrasacademy-website

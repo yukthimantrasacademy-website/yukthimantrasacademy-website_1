@@ -1,47 +1,55 @@
 # YukthiMantra Academy — Multi-App Monorepo
 
-> Enterprise-grade multi-application monorepo powering the **YukthiMantra Academy** digital ecosystem.
+> Enterprise-grade multi-application monorepo powered by **pnpm workspaces** and **Turborepo** for the **YukthiMantra Academy** digital ecosystem.
 
 [![CI Status](https://github.com/yukthimantrasacademy-website/yukthimantrasacademy-website_1/actions/workflows/ci.yml/badge.svg)](https://github.com/yukthimantrasacademy-website/yukthimantrasacademy-website_1/actions/workflows/ci.yml)
 [![Next.js](https://img.shields.io/badge/Next.js-16.3.2-black?logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2.8-blue?logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![Turborepo](https://img.shields.io/badge/Turborepo-2.x-blue?logo=turborepo)](https://turbo.build/)
+[![pnpm](https://img.shields.io/badge/pnpm-11.x-orange?logo=pnpm)](https://pnpm.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
 
-## 🏛️ Ecosystem Overview
+## 🏛️ Ecosystem Architecture
 
-This single GitHub repository contains three independently deployable applications and shared foundation packages:
+This single GitHub repository contains three independently deployable applications and six shared foundation packages:
 
 ```
 yukthimantrasacademy-website_1/
-├── 🌐 yukthimantrasacademy.com/         → Production Marketing & Admissions Portal
-├── 🎓 app.yukthimantrasacademy.com/     → Academy Candidate & Mentor Platform (Coming Soon)
-├── 🎟️ events.yukthimantrasacademy.com/  → Workshops, Hackathons & Seminars (Coming Soon)
+├── 📱 apps/
+│   ├── 🌐 website/               → Primary Admissions & Marketing Portal (yukthimantrasacademy.com)
+│   ├── 🎓 platform/              → Academy Candidate & Mentor Platform (app.yukthimantrasacademy.com)
+│   └── 🎟️ events/                → Workshops, Hackathons & Seminars (events.yukthimantrasacademy.com)
+│
 ├── 📦 packages/
-│   ├── design-system/          → Colors, typography, spacing & visual tokens
-│   ├── types/                  → Shared TypeScript definitions & contracts
-│   ├── ui/                     → Component library contracts
-│   └── utils/                  → Common validators and helpers
+│   ├── ui/                       → Reusable component primitives (Button, Badge, Card, Modal, Accordion)
+│   ├── design-system/            → Colors, typography, spacing, shadows, animations & breakpoints
+│   ├── types/                    → Shared TypeScript domain types, programme interfaces & API contracts
+│   ├── config/                   → Centralized domain constants, brand parameters & environment helpers
+│   ├── utils/                    → Validation helpers, formatters, slugify & common utilities
+│   └── api-client/               → Typed API client abstraction for counselling leads & inquiries
+│
 ├── 📚 docs/
-│   ├── architecture/           → Monorepo layout & shared packages guides
-│   ├── deployment/             → Vercel & Hostinger DNS instructions
-│   └── roadmap/                → Product & events roadmaps
-└── ⚙️ .github/                  → CI workflows, issue & PR templates
+│   ├── architecture/             → Monorepo layout & shared packages guides
+│   ├── deployment/               → Vercel & Hostinger DNS instructions
+│   └── roadmap/                  → Product & events roadmaps
+│
+└── ⚙️ .github/                    → Unified CI workflows, issue & PR templates
 ```
 
 ---
 
 ## 🚀 Live Domains & Vercel Deployment Map
 
-Each application deploys independently from this same GitHub repository using Vercel's native **Root Directory** setting:
+Each application deploys independently from this repository using Vercel's native **Root Directory** configuration:
 
 | Domain | Application Path | Vercel Project | Target Role |
 | :--- | :--- | :--- | :--- |
-| [`yukthimantrasacademy.com`](https://yukthimantrasacademy.com) | `yukthimantrasacademy.com/` | `yukthimantrasacademy-website` | Production main website |
-| [`app.yukthimantrasacademy.com`](https://app.yukthimantrasacademy.com) | `app.yukthimantrasacademy.com/` | `yukthimantra-platform` | Academy platform |
-| [`events.yukthimantrasacademy.com`](https://events.yukthimantrasacademy.com) | `events.yukthimantrasacademy.com/` | `yukthimantra-events` | Events & workshops |
+| [`yukthimantrasacademy.com`](https://yukthimantrasacademy.com) | `apps/website/` | `yukthimantrasacademy-website` | Production main website |
+| [`app.yukthimantrasacademy.com`](https://app.yukthimantrasacademy.com) | `apps/platform/` | `yukthimantra-platform` | Academy candidate & mentor platform |
+| [`events.yukthimantrasacademy.com`](https://events.yukthimantrasacademy.com) | `apps/events/` | `yukthimantra-events` | Events, masterclasses & hackathons |
 
 ---
 
@@ -49,41 +57,42 @@ Each application deploys independently from this same GitHub repository using Ve
 
 ### Prerequisites
 - **Node.js** >= 20.x
-- **npm** >= 10.x
+- **pnpm** >= 10.x / 11.x
+
+### Install Dependencies
+```bash
+pnpm install
+```
 
 ### Run Local Development Servers
-
 ```bash
-# Clone the repository
-git clone https://github.com/yukthimantrasacademy-website/yukthimantrasacademy-website_1.git
-cd yukthimantrasacademy-website_1
+# Start all applications concurrently with Turborepo
+pnpm dev
 
-# Start Main Website (runs on http://localhost:3000)
-npm run dev:main
-
-# Start Academy Platform (runs on http://localhost:3001)
-npm run dev:app
-
-# Start Events Portal (runs on http://localhost:3002)
-npm run dev:events
+# Or run individual applications:
+pnpm dev:website   # Main Website (http://localhost:3000)
+pnpm dev:platform  # Academy Platform (http://localhost:3001)
+pnpm dev:events    # Events Portal (http://localhost:3002)
 ```
 
-### Build Verification
-
+### Type Checking & Linting
 ```bash
-# Build all three applications sequentially
-npm run build:all
+# Typecheck across all workspace packages and apps
+pnpm typecheck
+
+# Lint across all applications
+pnpm lint
+```
+
+### Production Build Verification
+```bash
+# Build all three applications with Turborepo caching
+pnpm build
 
 # Or build individual applications:
-npm run build:main
-npm run build:app
-npm run build:events
-```
-
-### Linting
-
-```bash
-npm run lint:all
+pnpm build:website
+pnpm build:platform
+pnpm build:events
 ```
 
 ---

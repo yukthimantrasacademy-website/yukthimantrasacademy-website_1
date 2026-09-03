@@ -11,39 +11,33 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-test:
-    name: Build & Lint (${{ matrix.app.name }})
+  validate:
+    name: Build, Lint & Typecheck
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        app:
-          - name: 'Main Website (yukthimantrasacademy.com)'
-            dir: 'yukthimantrasacademy.com'
-          - name: 'Academy Platform (app.yukthimantrasacademy.com)'
-            dir: 'app.yukthimantrasacademy.com'
-          - name: 'Events Portal (events.yukthimantrasacademy.com)'
-            dir: 'events.yukthimantrasacademy.com'
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.25.0
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
-          cache-dependency-path: ${{ matrix.app.dir }}/package-lock.json
+          cache: 'pnpm'
 
       - name: Install Dependencies
-        working-directory: ${{ matrix.app.dir }}
-        run: npm ci || npm install
+        run: pnpm install --frozen-lockfile
 
-      - name: Run Typecheck and Lint
-        working-directory: ${{ matrix.app.dir }}
-        run: npm run lint
+      - name: Run Typecheck
+        run: pnpm typecheck
 
-      - name: Build Application
-        working-directory: ${{ matrix.app.dir }}
-        run: npm run build
+      - name: Run Lint
+        run: pnpm lint
+
+      - name: Build Applications
+        run: pnpm build

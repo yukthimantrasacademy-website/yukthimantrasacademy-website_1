@@ -8,10 +8,10 @@ Thank you for contributing to YukthiMantra! Please read these guidelines before 
 
 Our repository contains three independent Next.js applications and shared packages:
 
-- `yukthimantrasacademy.com/`: Main marketing, curriculum, and admissions website.
-- `app.yukthimantrasacademy.com/`: Academy candidate and mentor portal (Coming Soon).
-- `events.yukthimantrasacademy.com/`: Workshops, seminars, and hackathons portal (Coming Soon).
-- `packages/`: Shared packages (`design-system`, `types`, `ui`, `utils`).
+- `apps/website/`: Main marketing, curriculum, and admissions platform (`yukthimantrasacademy.com`).
+- `apps/platform/`: Academy candidate and mentor portal (`app.yukthimantrasacademy.com`).
+- `apps/events/`: Workshops, masterclasses, and hackathons portal (`events.yukthimantrasacademy.com`).
+- `packages/`: Shared packages (`design-system`, `types`, `ui`, `config`, `utils`, `api-client`).
 - `docs/`: Architecture, deployment, and roadmap specifications.
 
 ---
@@ -20,37 +20,34 @@ Our repository contains three independent Next.js applications and shared packag
 
 ### Prerequisites
 - **Node.js**: 20.x or higher
-- **npm**: 10.x or higher
+- **pnpm**: 10.x / 11.x or higher
+
+### Installing Dependencies
+```bash
+pnpm install
+```
 
 ### Running Applications Locally
-
 ```bash
-# Run Main Website (Port 3000)
-npm run dev:main
+# Run all applications concurrently with Turborepo
+pnpm dev
 
-# Run Academy Platform (Port 3001)
-npm run dev:app
-
-# Run Events Portal (Port 3002)
-npm run dev:events
+# Run individual applications
+pnpm dev:website   # Main Website (Port 3000)
+pnpm dev:platform  # Academy Platform (Port 3001)
+pnpm dev:events    # Events Portal (Port 3002)
 ```
 
-### Building Applications
-
+### Verification Commands
 ```bash
-# Build All 3 Applications
-npm run build:all
+# Typecheck across all workspace packages and apps
+pnpm typecheck
 
-# Build specific app
-npm run build:main
-npm run build:app
-npm run build:events
-```
+# Lint across all applications
+pnpm lint
 
-### Linting
-
-```bash
-npm run lint:all
+# Build all applications with Turborepo caching
+pnpm build
 ```
 
 ---
@@ -64,14 +61,15 @@ npm run lint:all
 
 Commit messages should follow Conventional Commits format:
 `feat(website): add new healthcare ai curriculum section`
-`fix(app): fix waitlist input focus style`
+`fix(platform): fix waitlist input focus style`
 `docs(deploy): add Hostinger DNS record documentation`
 
 ---
 
 ## 4. Pull Request Checklist
 
-1. Verify that all 3 applications build cleanly (`npm run build:all`).
-2. Run linter (`npm run lint:all`).
-3. Fill out the PR template with affected applications.
-4. Ensure no secret keys, credentials, or production `.env` files are committed.
+1. Verify that all applications and packages build cleanly (`pnpm build`).
+2. Run typechecking (`pnpm typecheck`).
+3. Run linter (`pnpm lint`).
+4. Fill out the PR template with affected applications.
+5. Ensure no secret keys, credentials, or production `.env` files are committed.

@@ -1,15 +1,18 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* Image optimization */
+  transpilePackages: [
+    '@yukthimantra/api-client',
+    '@yukthimantra/config',
+    '@yukthimantra/design-system',
+    '@yukthimantra/types',
+    '@yukthimantra/ui',
+    '@yukthimantra/utils',
+  ],
   images: {
     formats: ['image/avif', 'image/webp'],
   },
-
-  /* Strict mode for catching issues */
   reactStrictMode: true,
-
-  /* Headers for security */
   async headers() {
     return [
       {

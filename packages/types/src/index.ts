@@ -2,26 +2,88 @@
  * YukthiMantra Academy - Shared Type Definitions
  */
 
+// ==========================================
+// Programme & Academic Types
+// ==========================================
+
+export type ProgrammeGroup = 'Group A' | 'Group B';
+
+export type ProgrammeCategory =
+  | 'Data Science & Analytics'
+  | 'Artificial Intelligence'
+  | 'Healthcare Technology'
+  | 'Medical Coding'
+  | 'Revenue Cycle Management'
+  | 'Healthcare IT & Operations'
+  | 'Integrated Pathway';
+
+export interface CurriculumModule {
+  phase: number;
+  title: string;
+  topics: string[];
+  duration?: string;
+  description?: string;
+}
+
+export interface ProgrammeFAQ {
+  question: string;
+  answer: string;
+}
+
+export interface ProgrammeSEO {
+  metaTitle: string;
+  metaDescription: string;
+  keywords: string[];
+}
+
 export interface Programme {
   id: string;
   slug: string;
   title: string;
-  subtitle: string;
-  description: string;
+  group: ProgrammeGroup;
+  groupLabel: string;
+  category: ProgrammeCategory;
+  idealFor: string[];
   duration: string;
-  level: 'Beginner' | 'Intermediate' | 'Advanced' | 'All Levels';
-  format: 'Cohort-based' | 'Self-paced' | 'Hybrid';
+  summary: string;
+  description: string;
+  learningAreas: string[];
   curriculum: CurriculumModule[];
-  outcomes: string[];
-  tags: string[];
+  toolsAndTechnologies: string[];
+  careerOutcomes: string[];
+  careerPathway: string;
+  eligibilityRequirements: string[];
+  learningModes: string[];
+  faqs: ProgrammeFAQ[];
+  status: 'active' | 'coming-soon' | 'archived';
+  isFeatured: boolean;
+  seo: ProgrammeSEO;
 }
 
-export interface CurriculumModule {
+// ==========================================
+// Career Pathways
+// ==========================================
+
+export interface CareerPathway {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  roles: string[];
+  skills: string[];
+  relatedProgrammeSlugs: string[];
+}
+
+export interface PathwayCategory {
+  id: string;
   title: string;
   description: string;
-  duration: string;
-  topics: string[];
+  pathways: CareerPathway[];
 }
+
+// ==========================================
+// Events Platform Types
+// ==========================================
 
 export interface EventItem {
   id: string;
@@ -43,6 +105,31 @@ export interface EventItem {
   capacity?: number;
 }
 
+export interface EventRegistration {
+  eventId: string;
+  fullName: string;
+  email: string;
+  phone?: string;
+  organization?: string;
+  registeredAt: string;
+}
+
+// ==========================================
+// Candidate, Mentor & Platform Types
+// ==========================================
+
+export interface CandidateProfile {
+  id: string;
+  fullName: string;
+  email: string;
+  mobileNumber?: string;
+  graduationStatus: 'pursuing' | 'completed';
+  degree?: string;
+  specialisation?: string;
+  enrolledProgrammes: string[];
+  createdAt: string;
+}
+
 export interface MentorProfile {
   id: string;
   name: string;
@@ -56,24 +143,85 @@ export interface MentorProfile {
 
 export interface WaitlistSubmission {
   email: string;
-  role: 'candidate' | 'mentor' | 'attendee' | 'general';
+  role?: 'candidate' | 'mentor' | 'attendee' | 'general';
   sourceApp: 'platform' | 'events' | 'website';
-  timestamp: string;
+  timestamp?: string;
+}
+
+// ==========================================
+// Counselling & Contact Intake Forms
+// ==========================================
+
+export interface CounsellingFormData {
+  fullName: string;
+  mobileNumber: string;
+  whatsappNumber: string;
+  emailId: string;
+  city: string;
+  state: string;
+  graduationStatus: 'pursuing' | 'completed' | '';
+  degree: string;
+  specialisation: string;
+  collegeUniversity: string;
+  yearOfStudyOrPassing: string;
+  preferredProgramme: string;
+  preferredLearningMode: 'online' | 'weekend' | 'classroom' | '';
+  consentForCommunication: boolean;
+}
+
+export interface CounsellingSubmissionResult {
+  success: boolean;
+  message: string;
+}
+
+export interface ContactFormData {
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+}
+
+export interface ContactSubmissionResult {
+  success: boolean;
+  message: string;
+}
+
+// ==========================================
+// API & Infrastructure
+// ==========================================
+
+export interface ApiResponse<T = unknown> {
+  success: boolean;
+  data?: T;
+  error?: string;
+  message?: string;
+}
+
+export interface ApiError {
+  code: string;
+  message: string;
+  details?: Record<string, unknown>;
 }
 
 export interface SiteConfig {
   name: string;
+  brand: string;
+  tagline: string;
   description: string;
-  urls: {
-    main: string;
-    app: string;
-    events: string;
+  url: string;
+  platformUrl: string;
+  apiBaseUrl: string;
+  contact: {
+    email: string;
+    phone: string;
+    whatsapp: string;
+    address: string;
   };
-  socialLinks: {
-    linkedin?: string;
-    twitter?: string;
-    github?: string;
-    youtube?: string;
-    instagram?: string;
+  social: {
+    linkedin: string;
+    instagram: string;
+    youtube: string;
   };
+  businessHours: string;
 }

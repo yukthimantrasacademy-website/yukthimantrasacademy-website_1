@@ -3,6 +3,7 @@
  */
 
 export const colors = {
+  // Brand Primary & Secondary
   primary: '#1676b0',
   primaryDark: '#206090',
   accent: '#c0f050',
@@ -33,9 +34,21 @@ export const colors = {
 } as const;
 
 export const typography = {
-  fontDisplay: '"Libre Caslon Display", "Helvetica Neue", Helvetica, Arial, serif',
-  fontUi: '"Plus Jakarta Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
-  fontBody: '"Plus Jakarta Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+  fontDisplay: '"Libre Caslon Condensed", Georgia, serif',
+  fontUi: '"SFNSDisplay-Semibold", "SFProDisplay-Semibold", "SFUIDisplay-Semibold", ".SFUIDisplay-Semibold", "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif',
+  fontBody: '"Roboto", Arial, sans-serif',
+} as const;
+
+export const spacing = {
+  none: '0px',
+  xs: '4px',
+  sm: '8px',
+  md: '16px',
+  lg: '24px',
+  xl: '32px',
+  '2xl': '48px',
+  '3xl': '64px',
+  '4xl': '96px',
 } as const;
 
 export const shadows = {
@@ -55,8 +68,24 @@ export const radii = {
   pill: '9999px',
 } as const;
 
+export const animation = {
+  transitionFast: '150ms cubic-bezier(0.4, 0, 0.2, 1)',
+  transitionNormal: '250ms cubic-bezier(0.4, 0, 0.2, 1)',
+  transitionSlow: '400ms cubic-bezier(0.4, 0, 0.2, 1)',
+  easeOutBack: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+} as const;
+
+export const breakpoints = {
+  sm: '640px',
+  md: '768px',
+  lg: '1024px',
+  xl: '1280px',
+  '2xl': '1536px',
+} as const;
+
 export const siteConfig = {
   name: "YukthiMantra's Academy",
+  parentBrand: 'YukthiMantra',
   domains: {
     main: process.env.NEXT_PUBLIC_MAIN_SITE_URL || 'https://yukthimantrasacademy.com',
     app: process.env.NEXT_PUBLIC_APP_SITE_URL || 'https://app.yukthimantrasacademy.com',

@@ -6,11 +6,13 @@ This directory contains shared packages for the YukthiMantra Academy multi-appli
 
 | Package | Path | Description |
 | :--- | :--- | :--- |
-| **`@yukthimantra/types`** | `packages/types` | Shared TypeScript interfaces and domain types |
-| **`@yukthimantra/design-system`** | `packages/design-system` | Design tokens, color palettes, typography, and constants |
-| **`@yukthimantra/ui`** | `packages/ui` | Reusable UI component contracts |
-| **`@yukthimantra/utils`** | `packages/utils` | Shared utility and validation helpers |
+| **`@yukthimantra/types`** | `packages/types` | Shared TypeScript domain types, programme interfaces, and API contracts |
+| **`@yukthimantra/design-system`** | `packages/design-system` | Design tokens, brand palettes, typography, spacing, and animations |
+| **`@yukthimantra/ui`** | `packages/ui` | Reusable UI component primitives (Button, Badge, Card, Modal, Accordion) |
+| **`@yukthimantra/config`** | `packages/config` | Centralized domain constants, brand parameters, and environment helpers |
+| **`@yukthimantra/utils`** | `packages/utils` | Shared validation helpers, formatters, and utility routines |
+| **`@yukthimantra/api-client`** | `packages/api-client` | Typed API client abstraction for leads, counselling, and event intake |
 
 ## Architecture & Sharing Strategy
 
-Applications (`yukthimantrasacademy.com`, `app.yukthimantrasacademy.com`, `events.yukthimantrasacademy.com`) remain independently deployable to Vercel without requiring complex bundler toolchains or Turborepo. As components mature, they can be extracted and referenced here.
+Applications (`apps/website`, `apps/platform`, `apps/events`) consume these packages via pnpm workspace protocols (`workspace:*`) and Next.js `transpilePackages`. Each application remains independently deployable to Vercel with zero cross-app runtime coupling.

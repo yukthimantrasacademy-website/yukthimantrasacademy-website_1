@@ -6,9 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@yukthimantra/api-client": "workspace:*",
+    "@yukthimantra/config": "workspace:*",
+    "@yukthimantra/design-system": "workspace:*",
+    "@yukthimantra/types": "workspace:*",
+    "@yukthimantra/ui": "workspace:*",
+    "@yukthimantra/utils": "workspace:*",
     "gsap": "^3.15.0",
     "locomotive-scroll": "^5.0.1",
     "next": "16.3.2",
